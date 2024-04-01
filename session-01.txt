@@ -1,0 +1,267 @@
+What is DevOps?
+
+What is computer?
+	Laptop/Desktop/Mobile/Server == Computing Device
+	
+	Processor
+	Ram
+	Storage
+	OS = Graphics + Kernel = Linux not windows
+	Why servers will not have graphics
+
+Laptop/Desktop = Internet surfing + Development + Songs + movies = daily use
+Mobile = Apps + Internet + calling
+Server = to server the application
+
+more graphics = more memory + more power + more time
+
+Server = less memory + less power + less AC + less time + less cost
+
+Client and Server
+-------------------
+in or internet world, everything is a computer
+
+we have a Lawyer , we are clients for him
+
+legal service, so we are clients
+
+who gives info = service provider
+who requests info = client
+
+laptop = client
+server = facebook
+
+laptop = client
+mobile = server
+
+mobile = client
+laptop = server
+
+What is DevOps?
+------------------------
+
+before independence
+--------------------
+stakeholders --> who are part of system
+school = students, parents, teachers
+
+ideally 100% students should get pass
+
+only one final exam 50 years back
+
+student = he will not study from DAY-1
+teachers = teachers may not focus to complete syllabus from DAY-1
+parents = they always worried about their children from DAY-1
+
+clients == parents
+
+pass percentage was very less
+
+30 years back
+--------------------
+unit-I, unit-II, quarterly, unit-III, Half yearly, unit-IV, grand test and final test
+
+student = student may start study JUL 1st week
+teachers = teachers will start focus on lessons
+parents = they will wait until JUL 3rd week
+
+everybody will analyse results.
+
+100 --> 30 members got 31%, 69%
+
+unit-II --> 72%
+III --> 75%
+Final --> 95%
+
+15 year back
+-------------------
+daily slip tests
+
+DAY-1 we teach something
+DAY-2 we will conduct exam, max 5 questions
+
+students = they start studying from DAY-1
+teachers =  they start teaching from DAY-1
+parents = they can see results from DAY-1
+
+99.99%
+
+process improvement is the key for best results
+
+whatsapp --> 2011
+whatsapp --> 2024
+
+process improvement happened in whatsapp system...
+
+SDLC --> Software Development Lifecycle
+Requirements gathering --> what our customers want
+Analysis --> Analyse the requirements
+Design --> Start designing the project, customers will accept the designing
+Develop/implementation --> Implement the designing
+Deployment
+Test --> Test the design and everything
+Maintainance --> 
+
+Waterfall --> water is falling to down
+Construction is over --> but testing is failed, output is not as per the design
+Demolish the house, start again
+
+50% construction is over --> now customer wants some change in design
+
+disadvantages
+---------------
+it can't accomodate new requirements
+final product output is only at the end
+
+IT--> Waterfall
+----------------
+students = developers
+parents = clients
+teachers = testing team
+
+developers, testers, clients
+
+2 or 3 years
+
+developers = no development from DAY-1
+testers = no testing from DAY-1
+clients = worried
+
+after 1 year they start serious development
+
+few employees will resign, new employees will come = KT
+
+started development
+
+testing what to do? reading 100's of pages from client requirement and planning test cases...
+
+development is completed in DEV env, developers tesed it is good
+
+testing environment --> under pressure. raise more and more defects
+
+started fights between developers and testers
+
+100 defects --> 80 defects valid, 20 defects invalid
+
+lot of emails between developers and testers..involving team leaders.. involving managers .. account head
+
+clients == Ferrari == Maruthi 800
+
+
+Agile
+----------------------
+start with small things --> keep short goals
+divide the system into small modules
+signup and login
+product catalogue
+cart
+payment
+delivery
+
+sprints and modules
+
+Sprint-1 may be for 1 month
+--------------------------
+signup and login
+
+developers = they start from DAY-1 = 1.5 week for development
+testers = 1.5 week for testing
+1 week for deployment
+
+1.5 weeks = developers conc is more
+testers = focus is less
+
+10 defects --> 8 valid, 2 invalid
+
+again same fight
+
+90% completed, 10% pending
+
+Sprint-2 product catalogue
+---------------------------
+10% backlog
+
+
+Sprint-final
+---------------------------
+ferrari == Honda City
+
+
+2016 --> too much load on servers
+----------------------------
+daily slip test = daily testing
+
+Sprint-1 = process improvement
+------------------------------
+DAY-1 he developed a code for
+
+Enter your First Name
+
+DAY-1 ask testing team to test this small code
+
+positive and negative
+
+1. enter the name in 20 char
+2. enter the numbers in the name field
+
+10 test cases --> 
+
+DAY-2 ==> no chance of raising invalid defects. 3 valid defects.
+Developers and testers will communicate
+
+
+if the code developed is built and tested on the same day then you can call it as DevOps ==> We use tools to make it fast and reliable
+
+1. Faster releases to the market
+2. Less defects
+
+amazon vs flipkart
+-------------------
+every 11.2sec they do one release, fully automated with less defects
+
+manual testing --> automated testing
+build and deployment --> 
+
+deployment --> automate
+------------
+1.0 --> running
+
+download the new version
+stop the sytem
+remove old version
+instal new version
+start the system
+
+DevOps and cloud two wheels for a bike
+--------------------------------------
+
+
+Server
+---------
+Windows vs Linux --> Linux
+Super computers also use linux
+
+everything is command here --> everything is text
+
+Linux can run for years without restart
+less power
+less bandwidth
+less memory
+100% free
+fast
+
+We will start learning Linux
+
+AWS account create --> free trail
+500-1000rs per month
+if more bill --> ask AWS they will refund
+1Lakh --> please refund
+
+
+
+
+
+
+
+
+
