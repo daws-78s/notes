@@ -1,0 +1,205 @@
+What is DevOps?
+Linux importance
+waterfall vs agile vs devops
+client server architecture
+
+AWS account creation
+
+EC2 server launch
+
+Authentication
+---------------------
+Laptop --> Username and password
+		   fingerprint
+		   
+1. What you know
+2. What you have
+3. What you are
+
+username and password --> what you know
+tokens --> What you have, OTP, RSA physical token, software tokens
+what you are --> fingerprint, retina scanning, palm
+
+keys or tokens
+
+Cloud servers are remote servers --> they are somewhere in internet
+
+SSH --> Secure shell --> Linux authentication mechanism
+port no 22
+
+username/password
+username and private-key
+
+what are keys?
+------------------
+Public vs Private keys
+
+public private key we will generate
+
+Linux Server Launch
+--------------------
+Linux Torvalds
+He bought one laptop
+UNIX
+	strictly coupled with hardware
+	MAC laptop is software+hardware --> we dont have freedom to choose OS
+	It is not free, high cost
+DOS
+	blue screen
+	not free
+
+He started writing OS from the scratch using C language
+No strict couple with hardware
+free
+opensource
+
+Linux is OS/Kernel?
+Kernel --> it is a software component that can interact with hardware
+
+few companies developed shell to interact with kernel and few utilities
+
+Kernel+Shell+utilities/apps == OS
+
+Flavours/Distributions
+-----------------------
+Ubuntu
+Suse
+IBM
+Centos
+Fedora
+RHEL --> Redhat Enterprise Linux
+Arch Linux
+Android
+
+Desktop --> graphics
+Server --> No graphics only terminal/shell
+
+enterprise --> you will have support from Redhat
+opensource/community --> no support, only community support
+
+RHEL=CentOs=Fedora=AWSLinux
+
+Centos8
+
+RHEL-9
+
+EC2 Server Launch
+-----------------
+Public key and private keys
+
+GitBash --> Mini Linux for windows
+SSH Client, Git Client
+
+Windows Home folder
+-----------------
+C:\Users\<Laptop-Username>
+
+C:\users\user
+
+\ --> Windows
+
+/ --> Linux
+
+pwd --> present working directory
+
+ssh-keygen --> command to create pub and private key
+
+ssh-keygen -t rsa -b 4096 -f <your-file-name>
+
+.pub --> publickey
+no extension --> private-key
+
+.pem is for private-key
+
+EC2 Launch
+------------
+create key in AWS account
+Firewall creation
+0-65,535 -> 65,536
+
+Delhi --> HYD
+
+flat no, apartment name, street, city, pincode
+
+every process will open one port number...
+
+https://facebook:443 --> there is a https process running inside facebook server or port no 443
+
+a random port will be opened for this chrome tab
+
+facebook 443, I opened a random port 44565
+
+SSH port no 22...only facebook admin staff will have this access
+facebook https access --> yes public will have this access
+
+443 --> open for public
+22 --> only open for admin staff
+
+0.0.0.0/0 --> internet, open for everyone
+
+CPU
+RAM
+Storage
+OS
+
+
+54.86.71.109
+
+ssh -i <private-key> user-name@IP
+
+port no, ip, username/password
+
+https://facebook.com:443
+
+gitbash --> ssh client
+putty, mobaxterm, superputty
+
+$ --> normal user
+# --> root access
+
+
+/c/devops/daws-78s/daws-78s.pem --> absolute
+daws-78s/daws-78s.pem --> relative
+
+command-name <options> <inputs>
+
+ls --> list subdirectories
+
+/home/ec2-user --> default folder when logged in
+
+cd --> change directory
+
+/ root directory
+/home/ec2-user
+
+ls -l --> long format
+ls -lr --> reverse alphabetical order
+ls -lt --> latest files
+ls -ltr --> starts from old files
+ls -la --> all files and directory including hidden
+
+CRUD --> Create Read Update Delete
+
+ls --> read
+I want to create files folder
+
+create file
+---------------
+touch <file-name> --> this will create a file
+update --> enter info into file
+cat > sample
+entr the text you want
+once over click enter and ctrl+d
+
+> --> replace old content
+>> --> append/add to the old content
+
+Delete
+----------------
+rm  <file-name>
+rm -r --> recursive
+rmdir --> deletes only empty directory, fails when it has files inside
+
+mkdir --> make directory
+
+	
