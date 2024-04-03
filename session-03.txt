@@ -1,0 +1,121 @@
+recap
+---------
+public key vs private key
+generated keys
+created security group
+launched EC2
+connected
+practiced few commands
+
+copy
+----------
+select the file | ctrl+c + ctrl+v
+
+cp <source-file> <destination-path>
+
+/etc --> passwd
+
+cut
+-----------
+select the file | ctrl+x + ctrl+v
+
+mv <source-file> <destination-path>
+
+grep
+-----------
+used to search for a word in file
+
+grep <word-to-find> <which-file>
+
+curl and wget
+------------
+wget <file-url>
+https://github.com/git-for-windows/git/releases/download/v2.44.0.windows.1/Git-2.44.0-64-bit.exe
+
+wget is used to download files and folder or softwares into linux server
+
+curl is used to get the text directly on to the terminal
+
+cut and awk
+------------
+https://raw.githubusercontent.com/daws-78s/notes/main/session-02.txt
+
+Siva kumar reddy = siva, kumar, reddy
+space is called as delimiter
+
+https: <empty> raw.githubusercontent.com daws-78s notes main session-02.txt
+
+cut command is used to get the fragments of a text using delimiter
+
+cut -d "/" -f1
+
+awk command
+-----------
+awk command is used text processing..generally used to divide the text in column format
+
+awk -F "/" '{print $1F}'
+
+awk -F "/" '{print $NF}'
+
+head and tail
+--------------
+head --> gives first 10lines of the file
+tail --> last 10 lines of the file
+
+Editor
+------------
+vi and vim
+
+vim advanced version of vi
+
+vim <file-name>
+Colon/Command mode
+---------------
+:q --> Quit, to come out of the file
+:q! --> force quit, dont save the changes, quit the file
+:wq --> write and quit
+:set nu
+:/<word-to-find> --> search the word from top
+:?<word-to-find> --> search the word from bottom
+:noh --> remove focus i.e nohighlight
+:%d --> delete everything
+
+:s/bin/BIN --> replace in the line where your cursor is
+:%s/bin/BIN --> replace in every line, but only first occurence
+:<line-no>s/<word-to-find>/<replace-word>/g --> first occurence in that line, if you want global(all occurences in that line) just give g
+:%s/<word-to-find>/<replace-word>/gi --> all occurences in the file
+
+Esc Mode
+----------
+shift+g --> go to bottom
+gg --> go to top
+u --> undo
+yy --> copy
+p --> paste
+10p --> 10 times copy
+
+Permissions
+-------------
+R - 4
+W - 2
+X - 1
+
+-	rw-				rw-		r--
+    <user/owner>  <group> 	<others>
+	u				g 		o
+
+sivakumar created a file in a folder, He is the owner. His team devops is a group. anyone else they become others
+
+chmod --> change permissions
+
+chmod o+x <file-name>
+
+user --> full access
+group --> RW
+Others -- X
+
+chmod 761
+
+755
+user --> full
+group --> rx
