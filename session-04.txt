@@ -1,0 +1,146 @@
+Recap
+----------
+
+pwd, cd, clear, history
+ls
+cat
+cp mv
+cut awk
+curl wget
+vim
+chmod
+grep
+head
+tail
+touch
+
+command-name <options> <inputs>
+-l, --list
+-a, --all
+
+User management
+--------------------
+we need to create multiple user accounts
+we create groups/teams we add users to the group...
+
+useradd <user-name>
+
+useradd ramesh
+
+/root --> landing location of root user.
+sudo su -
+id <user-name> --> userid, user-name
+
+in linux, when you create user, by default a group will be created with same user-name
+
+/etc/passwd --> will have users info
+getent group will have group info
+
+passwd <user-name>
+
+key based authentication, pub and private key
+
+/etc/ssh/sshd_config --> SSH configuration
+
+
+groupadd devops
+
+I want to add ramesh to devops group..
+
+usermod -g devops ramesh -> adding ramesh to devops group as primary
+
+linux should have only 1 primary group, can have multiple secondary groups
+
+there will be a group called testing...
+
+groupadd testing
+
+usermod -aG testing ramesh
+
+gpasswd -d ramesh testing --> deleting ramesh user from testing group..
+
+you can't remove primary group of linux user, you can only change/modify
+
+create user --> useradd
+read user --> id or cat /etc/passwd
+modify user --> usermod -g or -aG <group-name> <user-name>
+delete user
+
+when employee leaving organisation
+----------------------------------
+delete the user
+
+1. remove user from group
+2. delete the user
+
+ramesh --> testing
+userdel ramesh --> ramesh will be removed? what about ramesh group created by default.
+
+1. remove all his secondary groups
+2. change primary group to his own group.
+3. then delete the user
+
+if a new user have to login with his private key?
+-----------------------------------------------
+robert user with key based authentication
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDK9Ox5SMXHCSSf9K8pyoRmeOsYxk5y6TA2Agqn2yI4gjURxdiKYXNA21S7K+tLA3hMtBoqldT9o4FWYgZpLVxOQ8KyLXO/6TAZZcKSI3fVNaz40vaPHl84eILnbsaTZK0Sx7SrdcIpTCrccsDdfvHTu/cqD+MEhhZh0Ea0twUR9RFah7wKYNsAo7ev/bNFQD1TMt20DB9So0oyt04nMRMT0xZ+Dgs0QDhRHu+fZF4wQRPexYrKw2XMhjst0Hwicxa9DZNnJwUAsYVnEQzVsoSV+aSmmaAmRLk0ZfHLy+1RZ7/bSn3ukznXVBon2Kkrhly+twkdisrNcr8/49icT6laXyCROwMui6zKTZeo5n0ce7J46zNAsyo7nUs9wCNdnUPmkCEtb5l6G6Kh6PFu09lPDFF8wP/L/RL7kDx6sjO1yfB0hVqlxtkCJ+QreWbwqqTAJ9y5yTb76EuApmkVIWVEjvMiJ5+uMEMVRZgy0zDKCudrYSvCh39gmihm1AsswBC0I60+DD7gPZZbxmQqUzfFNLRbuEkWE5aUZTSe/HOS6UikD5mJHeBUglzX4v5WmwpHZZv4g/mEQ85QFWDgS8fVYRZ1RSt6uhiuo7gRQpjzyv0Zt1+LRzSCCDKNqwIsbgr4/SDpnlOoErIgl4PDN/TV/yKhtFnJvZ331QoiOpc1SQ== user@AshDexter-T480
+
+
+mkdir .ssh
+authorized_keys
+
+R 4
+W 2 
+X 1
+
+chown <user>:<group>
+
+chown -R rober:robert .ssh
+
+package management
+----------------------
+in linux, one package may be depends on another package. olden days we have rpm
+
+rpm we have to manually get the dependencies, install them and finally main package..
+
+yum --> automatic dependencies management
+
+yum install git -y
+
+/etc/yum.repos.d --> location of package URL's
+
+yum list installed --> installed packages
+yum list all --> all packages for this linux server
+available = all - installed
+
+cat /proc/cpuinfo
+cat /proc/meminfo
+cat /etc/os-release --> cat /etc/*release
+yum update
+
+service management
+---------------------
+0-65,535 ports = 65,536
+
+SSH 22
+
+ssh -i <private-key> user@ip
+
+IP address, server will check is there any service running on port 22. then it will forward request to ssh
+
+ssh servie will check credentials, if success login
+
+Delhi --> Mumbai
+
+if flat no, letter will stuck at security
+
+systemctl start nginx
+systemctl status nginx
+systemctl stop nginx
+systemctl restart nginx
+systemctl enable nginx
+
+enable --> if a service is enabled, even after restarting the server that service automatically start...
+
+process management, network management, linux folder structure
