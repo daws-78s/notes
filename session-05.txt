@@ -1,0 +1,135 @@
+Project Discussion
+---------------------
+3 tier architecture
+
+Desktop vs Web
+
+Desktop apps disadvantages
+----------------------
+can't access in mobile
+storage
+installation
+upgrade
+data loss
+heavy system resources
+compatibility
+
+Web applications
+---------------------
+a proper architecture is highly required to create and maintain web applications...
+
+We cook in our home --> batter, gas, time, chutney, etc.
+
+road side cart
+--------------------
+single person
+
+Raw items --> eatable format
+
+He is cooking --> Quality food, higene food
+He is taking orders
+He is taking bills
+
+10 members at a time.... 100 members can he handle? No
+
+small shop
+--------------------
+hire cooking persons
+He will be at counter
+
+20-30 members
+
+cooking person
+--------------
+take orders
+queue manage
+cook
+
+counter
+--------------
+billing
+
+
+Restaurant
+--------------------
+They hire chef
+They hire waiter
+They hire cashiers
+They hire captains
+
+captain
+-------------
+a person who welcome us and show the table
+
+waiter
+-------------
+He will come take order
+prepare the queue of orders
+
+Chef
+------------
+Only cooking
+Raw items --> food
+
+Cashier
+------------
+Only charge
+
+
+
+facebook
+-------------
+users data
+profile
+posts
+likes
+comments
+
+data use to store in tables
+
+firstname, lastname, dob, email, mobile number, country, username and password
+
+HTML --> Text Format
+CSS --> Colors, fonts
+JS --> Validations..
+
+
+Web/Frontend tier --> LB,HTML, CSS, JS, Angular Js, reactjs, etc, nodejs --> Nginx/Apache servers --> http servers
+API/APP/Backend tier --> Java, .NET,Python, pHp, etc. --> Jboss/weblogic/websphere --> inbuilt servers like tomcat
+DB tier --> MySQL,MSSQL, Oracle, etc. --> MongoDB, Mysql, Kafka, redis
+
+Developers --> Application
+
+feedback
+
+direct public --> No
+
+Development --> defects, fix them(family)
+
+Testing --> Defects, fix them (Relatives)
+
+Pre-prod --> similar to prod environment
+
+
+speed and accuracy
+
+automatic through webhook
+DEV
+-----
+clone the code
+compile the code
+build the code
+scan the code
+unit testing
+sast
+deploy
+functional testing
+
+Autoscaling --> 
+
+stage('Unit test'){
+	testing a single function
+}
+stage('Functional testing'){
+	testing multiple functions is called functional testing
+}
