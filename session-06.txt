@@ -1,0 +1,163 @@
+Process Management
+----------------------
+a sequence of steps to follow to complete a task...
+
+ticketing system. every order will get one order/ticket id.
+
+in linux/windows everything is process.
+
+Linux creates process id for everything...
+
+PID --> process instance id
+
+If a task is big, do you think one process is enough?
+
+We create subtasks...
+
+Acc Manager Team Manager Lead Senior Junior Trainee
+
+Trainee reports to Junior, Junior reports to Senior
+
+Trainee is child, his parent is Junior
+
+PID, PPID
+
+ps
+
+3327 pts/0    00:00:00 bash
+3351 pts/0    00:00:00 ps
+
+ps -ef --> all process in linux
+
+foreground and background
+
+foreground process blocks the terminal until it completes
+
+
+& will take the process into background
+
+ps -ef | grep nginx
+
+when a service stuck, you need to restart
+
+kill the existing process, and restart the service....
+
+kill vs kill -9
+
+kill -> request to end --> graceful termination
+kill -9 --> order to end --> forceful termination
+
+top --> all running process with CPU and RAM
+
+Network management
+------------------
+How to check a port is opened or not in linux
+netstat -ltnp --> listdown the tcp opened ports and their PID
+
+Expenses Project
+-------------------
+
+when app is getting started
+1. DB should be ready
+2. Chef should be ready
+3. Waiter
+
+termination of application
+LB
+frontend
+backend
+DB
+
+username and password based
+---------------------------
+RHEL9 -> Latest redhat enterprise OS
+CentOS 9
+RHEL9 == CentOS9
+
+ec2-user
+DevOps321
+AMI --> devops-practice --> us-east-1 region
+
+image = we + our surroundings
+AMI = Bare OS + packages you installed
+
+use AMI you will get all packages
+
+putty and super putty
+mobaxterm --> alternative to putty and super putty
+
+RDBMS --> relational database management system
+Table and column based data
+
+USER
+------
+ID	USERNAME	PASSWORD		MobileNumber
+1	joindevops	joindevops321	6281937079
+
+ADDRESS
+-------
+ID	USERID	AddressLine1	AddressLine2	City
+1	1	    	sanath nagar	stree3		HYD
+
+mysql --> 3306
+
+username --> root
+
+
+Backend
+-------------------
+Program needs that runtime(Software)
+
+installed nodejs
+
+usually applications can be run by system/functional/daemon users...
+
+create a seperate folder for application is a good practice
+
+application is somewhere in internet, developer is giving the location
+
+npm install --> install the libraries/dependencies
+
+yum install nginx -y --> automatic download and installation
+systemctl start nginx --> runs the service automatically
+
+systemctl service.....
+
+application is manually configured by us, you can't run systemctl commands to start our application....
+
+systemctl will give an option to configure our application as automatic start/stop and restart
+
+/etc/systemd/system --> create your service file in this directory..
+
+backend.service --> .service is also mandatory
+
+[Unit]
+Description=amazon-ssm-agent
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/bin/
+ExecStart=/usr/bin/amazon-ssm-agent
+KillMode=process
+
+# Restart the agent regardless of whether it crashes (and returns a non-zero result code) or if
+# is terminated normally (e.g. via 'kill -HUP').  Delay restart so that the agent is less likely
+# to restart during a reboot initiated by a script. If the agent exits with status 194 (reboot
+# requested), don't restart at all.
+Restart=always
+RestartPreventExitStatus=194
+RestartSec=90
+
+[Install]
+WantedBy=multi-user.target
+
+
+java/npm install --> it is configured already
+
+service/application --> public access this, this should be running
+
+:wq --> write and quit
+:wq! --> force write
+:q! --> force
+
