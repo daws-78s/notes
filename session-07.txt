@@ -1,0 +1,160 @@
+systemctl status mysqld
+netstat -lntp --> 3306 port should be opened for mysql
+ps -ef | grep mysqld
+
+
+NodeJS Structure
+--------------------
+.js files --> java script files
+package.json -> developers mention the dependencies and thier version
+				it is a build file
+every language will have one build file
+package.json --> nodejs
+pom.xml --> java
+requirements.txt --> python
+
+install the dependencies --> npm install
+
+49.204.198.60
+
+NAT
+2^32 total IP Address
+IPV4 exhausted
+
+mysql-server --> this is server
+mysql --> client
+
+Linux --> Server
+Putty --> SSH client
+
+facebook.com --> http server
+browser --> http client
+
+expense
+ExpenseApp@1
+
+these credentials are used by our nodejs application to connect
+
+CREATE DATABASE IF NOT EXISTS transactions;
+USE transactions;
+
+CREATE TABLE IF NOT EXISTS transactions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    amount INT,
+    description VARCHAR(255)
+);
+
+CREATE USER IF NOT EXISTS 'expense'@'%' IDENTIFIED BY 'ExpenseApp@1';
+GRANT ALL ON transactions.* TO 'expense'@'%';
+FLUSH PRIVILEGES;
+
+
+
+mysql -h 172.31.45.116 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+
+ping google.com
+
+backend should be able to connect DB server on port no 3306
+
+telnet <IP-Address> <port-no>
+
+backend apps usually run on port no 8080
+
+Nginx --> Engine-X
+-----
+http web server
+reverse proxy
+port no --> 80
+
+/usr/share/nginx/html --> this is where we need to keep our frontend website
+
+/etc/nginx --> Home directory of nginx
+
+/etc/nginx/nginx.conf --> this is the nginx config file
+
+/var/log/nginx/error.log --> this is the location nginx stores logs
+
+/usr/share/nginx/html --> if you keep index.html. that will be served by default
+
+
+proxy_http_version 1.1;
+
+location /api/ { proxy_pass http://172.31.32.178:8080/; }
+
+location /health {
+  stub_status on;
+  access_log off;
+}
+
+
+what is proxy?
+-----------------
+some one on behalf of you == proxy
+
+VPN will change our location to US...
+
+Forward Proxy
+----------------
+clients are aware of VPN, but servers are not aware
+
+mobile is aware of VPN
+
+company VPN
+---------------
+restrict the websites
+monitor the user requests
+
+Reverse Proxy
+-----------------
+clients are not aware of proxy/VPN, only servers are aware
+
+SSL termination
+Some secure features
+
+
+http://54.85.211.179/api/transaction
+
+http://54.85.211.179/api/transaction
+
+{
+    "result": [
+        {
+            "id": 1,
+            "amount": 5000,
+            "description": "food"
+        },
+        {
+            "id": 2,
+            "amount": 200,
+            "description": "movie"
+        },
+        {
+            "id": 3,
+            "amount": 231,
+            "description": "travel"
+        }
+    ]
+}
+
+domain
+google.com
+facebook.com
+twitter.com
+
+DNS --> Domain name system
+
+dictionary for domains
+
+google.com = 123.48.55.77
+
+first we need to buy domain
+
+provider
+godaddy
+
+sometimes hostiger will ask for 5000rs... autopay
+
+you will pay only max 200rs.
+
+I should transfer my domain to AWS...
+
