@@ -1,0 +1,162 @@
+Linux
+Expenses project
+
+Shell Script
+------------------
+3 servers....
+
+configuring the server?
+------------------------
+installed application runtime --> nodejs
+downloaded code
+created a directory
+created a user for our application
+unzip the code
+installed node js dependencies
+created systemctl service
+configured mysql details
+start the server
+
+MySQL
+----------
+install mysql server
+configure password
+start the server
+
+frontend
+-----------
+install nginx
+start nginx
+downloaded the code
+unzipped
+configured backend details
+start the server
+
+15min
+20 servers --> 30min
+
+10-15min
+
+Deployment
+------------
+releasing new version
+
+download andriod latest version
+switch off phone
+install latest version
+start the phone
+
+upgrade/releasing/deploying the new application
+---------------
+download the new code
+stop the server
+remove old code
+copy the new code
+start the server
+
+logs in field
+---------------
+carry one log at a time manually to home...
+hire a tractor, keep all logs at a time...
+
+run commands one by one --> manual
+keep all commands in a file and run that file --> shell script
+------------------------------
+shell runs these commands in sequence...
+
+errors may defnitely come
+-------------------------
+if error
+	you ignore?
+	you clear error and go forward
+	
+we need to check if the present command got success or not?
+
+if success go forward
+if failure, exit the program
+
+programming/developing scripting
+---------------------------
+Coding
+	1. Programming/Developing --> reactjs, nodejs, java, .net, python, etc.
+	2. Scripting
+		automating manual tasks other than development
+			server configuration
+			installations
+			deployment process
+	
+execution time should be less
+memory consumption should be less
+	data structures
+	alogorithms
+	design patterns
+	
+	connect to DB
+	fetch the data asap..
+	transaction management
+	
+Coding concepts
+-----------------
+variables
+data types --> less priority in scripting
+functions
+loops
+conditions
+
+
+Algorithm
+-----------------
+1. fast releases
+2. reduce the defects
+
+write down the steps in general way...
+I will install a package through script
+
+1. check the package is already installed or not
+	if installed that's all
+2. if not installed
+	then you need to install
+3. just verify is it done properly or not
+	if good, that's all
+	otherwise check and clear the error
+	
+if sunday, dont go to school, otherwise go to school
+-------------------------------------------------
+1. check what day is today..
+2. if today is not sunday, just go to school.
+3. otherwise enjoy the holiday.
+
+today=wednesday
+if(today==sunday){
+	print enjoy the holiday
+}
+else{
+	print go to school
+}
+
+what is shell?
+----------------
+ls -l --> getting result
+lss -l --> who is checking that it is wrong?
+
+it's nothing but shell
+
+shell is the CLI that interprets the linux commands and executes them
+
+terminal == shell terminal
+
+shell script --> keeping all the commands you need in a file with variables, conditions, loops, functions, etc is called shell script
+
+shell interprets and executes shell script.
+
+Where to store scripts?
+------------------------
+can you store in your laptop?
+	security and backup --> if laptop crashes
+	versions --> 
+
+
+
+	
+
+
