@@ -1,0 +1,141 @@
+How DNS works?
+--------------------
+DNS is like a dictionary...
+key=value
+
+daws78s.online=IP address
+
+when you enter joindevops.com first time? what happens here?
+
+Where can I find IP address?
+
+browser checks its cache?
+
+if not find anything? then it asks OS
+
+OS checks it's cache. If not finds anything
+
+OS sends a request to ISP.... it is ISP responsibility to get the IP address of a domain
+
+DNS resolution...
+
+Resolver is the component responsible to fetch IP address. it is from ISP.
+ All ISP are configured with how to send a request to root servers..
+
+Root servers
+------------------------
+Oxford is the base for English dictionary...
+
+Who owns root servers? --> ICANN Internet corporation for assigned names and numbers
+----------------------
+12 non profit organisations across the world manages these root servers...
+
+13 root servers across the world with many servers in background..
+
+I want IP address for joindevops.com
+
+Root servers
+
+TLD
+	.com .net .org .in .us .uk .online .ai .shop .site .edu .org .co .inc
+
+Root server will give the information of .com TLD...
+
+this info will be stored in resolver cache...
+
+it will contact .com TLD....
+
+.com TLD should maintain what is the IP address of joindevops.com
+
+Domain Registars/Providers
+---------------------------
+godaddy hostinger route53 google 
+
+when you buy a domain in hostinger, they will update .com TLD about your domain, address details, etc.
+
+domain name
+address
+nameservers
+
+hostinger --> AWS transfer
+
+I updated AWS NS in hostinger...
+
+hostinger will update nameservers to the TLD. Now .online TLD have AWS nameserver details
+
+daws78s.online --> resolver contacts .online TLD
+
+.online TLD will give nameserver details....
+
+resolver will get AWS NS details...
+
+then resolver will contact AWS NS. Then AWS will give A record
+
+.siva
+
+fastest automated way
+---------------------
+without touching the configurations and servers
+
+if you do any config change, you have to restart application...
+
+A record --> IP address of the domain
+NS --> authoritive nameservers
+SOA --> Ownership record
+CNAME(canonical name) --> another domain
+MX records --> mail servers
+
+info@joindevops.com --> MX records
+
+
+soft link vs hardlink
+-----------------------
+what is inode?
+
+inode stores the file metadata actually. 
+
+inode = indexnode
+
+14950849
+
+storage location, ownership, permissions, etc.
+
+shortcut --> points to the real location
+hard link --> another copy
+
+if I delete main file, can soft link work? no it will not work
+if I delete main file , can hard link work? Yes it will work
+
+softlink/symlink is the short cut to the file, if you remove actually symlink will not work...
+
+hardlink is another copy of file, if you remove main file, hard link will work?
+
+does inode of softlink is same as main file? inode is same
+
+inode is different
+
+does inode of hardlink is same as main file? yes inode is same
+
+when someone deletes the main file, do you think file storage is deleted?
+
+NO.. because other hard links are pointing to this
+
+ln == link
+
+Linux Folder Structure
+----------------------
+/root --> directory for root user
+/bin --> binaries, while system is starting these binaries will load
+/boot --> When linux system starts, Linux starts boot loading from here
+/dev = devices --> hard disk, keyboard, devcices
+/etc = extra configuration = /etc/nginx
+/home = Linux stores all users in home location
+/lib = operating system libraries
+/media = cd or dvd drives
+/mnt = you can mount other disks
+/opt = optional = if you are installing any package manually, prefer opt location
+/proc = pid info and processor info
+/sbin = admin commands
+/tmp = it is temp, not an important
+/usr = user commmands, libraries, documents
+/var = variables.. mainly log files
