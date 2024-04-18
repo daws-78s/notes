@@ -1,0 +1,69 @@
+variables
+data types
+conditions
+functions
+loops
+
+functions
+-----------
+it is block of code that can do some work. It accepts inputs too...
+
+FUNC_NAME(){
+
+}
+
+FUNC_NAME
+
+variable, any value repeated inside code can be declared as a variable. declaring variables is a best practice even it is repeating only 1 time.
+
+similary if a a block code is repeating, consider using functions..
+
+
+logs
+------
+we should persist/store the logs of any coding, this is the best practice.
+
+Redirections
+----------
+> --> by default only success output will be redirected...
+1 --> success
+2 --> Error
+& --> Both success and error
+>> --> append
+there should be no space b/w & and >
+&>>
+
+cat > file-name
+cat >> 
+
+colors
+------------
+31 --> red color
+32 --> green
+33 --> yellow
+
+\e[31m --> red color
+
+loops
+-----------
+for(int i=0; i<20; i++){
+	print $i;
+}
+
+
+mysql
+gcc
+chrony
+fail2ban
+postgis2_94
+
+steps
+-----------
+log redirection
+colors are mandatory
+
+1. user have root access or not
+2. send packages to install as parameters
+sudo sh install-packages mysql gcc docker 
+
+special variable to get all params --> $@
