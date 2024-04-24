@@ -147,6 +147,8 @@ OS
 
 ssh -i <private-key> user-name@IP
 
+ssh -i daws-78s user-name@IP
+
 port no, ip, username/password
 
 https://facebook.com:443

@@ -1,0 +1,53 @@
+How do you call other scripts from your shell script?
+-------------------------------------------
+2 ways
+
+1st way
+------------
+./<script-name>.sh
+
+variable values will not change after calling other script..
+PID of two scripts are different
+
+1. changes happened in other script will not affect current script
+2. PID of 2 scripts are different
+
+2nd way
+-------------
+source ./<script-name>.sh
+variable values changes after calling other script
+PID of 2 scripts are same...
+
+1. changes happened in other script will be reflected in current script
+2. PID of2 scripts are same.
+
+disadvantage
+-------------
+script will not exit even error comes...
+
+set -e --> script starting
+
+some cases --> even error comes, it should move forward --> error handling
+
+
+delete old logs
+---------------
+cd /app/logs
+	daily 1 log file
+
+delete old log files more than 2 weeks old...
+
+1. decide which folder, check that folder exist or not
+2. .java, .sh, .py, .log files are there in that folder
+3. find only .log files
+4. find only more than 2 weeks old
+
+while read line; do  
+  ARRAY[$c]="$line"
+  c=$((c+1))  
+done < <(tcpdump -n -r "$pcap")
+
+while IFS= read -r line
+do
+	statements to execute
+done <<< input

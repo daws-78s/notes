@@ -1,0 +1,5 @@
+idempotency
+----------------
+it is a nature of program irrespective of how many times you run it should not change result...
+
+Shell script is not idempotent in nature, so we need to take care

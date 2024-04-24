@@ -153,9 +153,41 @@ Where to store scripts?
 ------------------------
 can you store in your laptop?
 	security and backup --> if laptop crashes
-	versions --> 
+	versions --> you must keep the previous versions
+	collobaration -->
+	
+to store our shell scripts in github
 
+repository --> stores something...
+github --> only store code
 
+git vs github vs gitlab
+
+Linux --> kernel
+Redhat, ubuntu --> implementations of linux kernel from different vendors
+
+git --> linus torvalds...concept
+github gitlab bitbucket -->implementations of git from different vendors
+
+one repo one specific code...
+
+steps
+-----------
+1. create repo in github
+2. clone in your local laptop
+
+where to develop the code?
+-------------------
+can I develop code using vim editor?
+
+IDE --> integrated development environment/editor
+
+vs code --> light weight and perfect for scripting
+eclipse
+intelliJ
+sublime editor
+
+1
 
 	
 

@@ -144,3 +144,8 @@ systemctl enable nginx
 enable --> if a service is enabled, even after restarting the server that service automatically start...
 
 process management, network management, linux folder structure
+
+DNS
+facebook.com --> 11.45.67.89
+
+https://facebook.com:567
