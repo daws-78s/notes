@@ -1,0 +1,89 @@
+1. deleting the old log files
+2. monitor memory of the server
+3. given a doc file, count the number of each word
+
+logs
+---------
+1. everyday a new logfile will be created with that date.
+
+rotate the logs
+2. zip them and transfer to other servers
+
+crontab --> a scheduler for linux servers
+
+crontab -e --> edit crontab
+
+5 4 * * *
+
+1-M
+2-TUE
+3-WED
+4-THU
+5-FRI
+6-SAT
+0-SUN
+
+zip the files and move another location in linux server...
+
+centos8
+--------
+centos
+DevOps321
+
+relayhost = [smtp.gmail.com]:587
+smtp_use_tls = yes
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+smtp_sasl_security_options = noanonymous
+smtp_sasl_tls_security_options = noanonymous
+
+from-user --> they have to login
+to-user
+
+[smtp.gmail.com]:587 devopsandcloudwithsiva@gmail.com:kqxfmwauucwwrqtx
+
+1. write script to monitor something
+2. send alert email if something more than threshold
+
+2. write a script to monitor RAM memory and send alert email...
+
+disadvantages
+---------------------
+1. no idempotency
+2. hard to understand the script
+3. single script may not work for all distros.
+4. no error handling
+5. shell scripting is tough if you have more servers.
+
+
+Ansible --> configuration management
+-------------------------------------
+Chef, Rundeck, saltsack
+
+
+1. login to server
+2. create a file
+3. exit the server
+
+curl https://raw.githubusercontent.com/daws-78s/expense-shell/main/mysql.sh | sudo bash
+
+100 servers
+-----------
+login to server
+run mysql script
+wait for completion 
+exit
+
+
+expense backend --> 100 servers
+
+I need to group these 100 servers. if any change I need to update these 100 servers...
+
+variables
+datatypes
+functions
+loops
+conditions
+
+
+
