@@ -1,0 +1,212 @@
+disadvantages
+--------------
+1. no idempotency
+2. no error handling
+3. Hard to understand
+4. Homogeneous --> means only works for one distro
+5. not scalable
+6. imperative type of programming
+
+configuration management
+----------------
+server should be ready with application
+
+install application runtime
+install system packages
+install application dependencies
+download the code
+create users, permissions, directories
+create systemctl services
+
+
+CM tools --> puppet, chef --> old. Ansible is new
+
+push vs pull
+---------------
+
+Delhi --> Hyd
+
+1. asking DTDC office every day --> pull
+
+2. dont do anything, when letter comes DTDC deliver to you --> Push
+
+pull
+------
+1. internet traffic increases
+2. unnecessary bandwidth consumption
+3. power and system resources
+4. cost
+
+push
+-----
+active notifications
+
+CRUD --> create, read, update, delete
+
+Adhoc commands
+---------------
+SSH protocol
+ansible -i <inventory> -e ansible_user=ec2-user -e ansible_password=DevOps321
+
+Linux --> Commands = Anible --> modules/collections
+
+ansible -i 172.31.16.150, all -e ansible_user=ec2-user -e ansible_password=DevOps321 -m ping
+
+ansible -i 172.31.16.150, all -e ansible_user=ec2-user -e ansible_password=DevOps321 -m dnf -a "name=nginx state=installed"
+
+-b --> become root
+
+Manually configured servers --> through commands
+Shell script --> all commands in a file, run that file one time
+
+Adhoc commands --> manual way
+Playbook --> keep all your modules in a single file with YAML syntax. Run that file. it is done
+
+YAML --> Yet another markup language
+
+DTO --> data transfer objects
+----------------------------
+HTML --> Hyper text markup language
+
+XML --> extensive markup language
+
+<User>
+	<Username>sivakumar</Username>
+	<Password>admin123</Password>
+</User>
+
+Name
+Amount
+Date
+
+Amount
+Date
+
+forms/templates
+
+XML
+-----------
+<Student>
+	<Name>Sivakumar</Name>
+	<DOB>2020-01-01</DOB>
+	<Address>Gandhi Nagar, KR Puram, Bengaluru</Address>
+</Student>
+
+<Students>
+	<Student>
+		<Name>Sivakumar</Name>
+		<DOB>2020-01-01</DOB>
+		<Addresses>
+			<PermAddress>
+				<AddressLine1>D-203</AddressLine1
+				<AddressLine2>Sai Apartments</AddressLine2>
+				<Stree>Gandi Nagar</Street>
+			</PermAddress>
+			<CurrentAddress>
+				<AddressLine1>D-203</AddressLine1
+				<AddressLine2>Sai Apartments</AddressLine2>
+				<Stree>Gandi Nagar</Street>
+			</CurrentAddress>		
+		</Addresses>
+	</Student>
+	<Student>
+		<Name>Sivakumar</Name>
+		<DOB>2020-01-01</DOB>
+		<Addresses>
+			<PermAddress>
+				<AddressLine1>D-203</AddressLine1
+				<AddressLine2>Sai Apartments</AddressLine2>
+				<Stree>Gandi Nagar</Street>
+			</PermAddress>
+			<CurrentAddress>
+				<AddressLine1>D-203</AddressLine1
+				<AddressLine2>Sai Apartments</AddressLine2>
+				<Stree>Gandi Nagar</Street>
+			</CurrentAddress>		
+		</Addresses>
+	</Student>
+</Students>
+
+JSON --> Java script object notation
+-----------------------------------
+{
+	"Username": "sivakumar",
+	"Password": "admin123",
+	"DoorNo": 123
+}
+
+
+{
+	"name": "sivakumar",
+	"dob": "2020-01-01",
+	"address": "D-203, Gandhi Nagar, Bang"
+}
+
+[] --> denotes list
+{} --> map/dictionary
+
+{
+	"name": "sivakumar",
+	"dob": "2020-01-01",
+	"address": [
+		{
+			"addressline-1": "D-203",
+			"addressline-2": "gandhi nagar",
+			"city": "bang"
+		},
+		{
+			"addressline-1": "D-203",
+			"addressline-2": "gandhi nagar",
+			"city": "bang"
+		}
+	]
+}
+
+YAML --> Yet another markup language
+-------------------------------------
+based on indentation
+- = list
+
+name: sivakumar
+dob: 2020-01-01
+
+name: sivakumar
+dob: 2020-01-01
+address: d-203, gandhi nagar, bengaluru
+
+name: sivakumar
+dob: 2020-01-01
+addresses:
+- addressline-1: d-203
+  addressline-2: gandhi nagar
+  city: bengaluru
+  
+- addressline-1: d-203
+  addressline-2: gandhi nagar
+  city: bengaluru
+gender: male
+
+- name: sivakumar
+  dob: 2020-01-01
+  addresses:
+	- addressline-1: d-203
+	  addressline-2: gandhi nagar
+	  city: bengaluru
+	  
+	- addressline-1: d-203
+	  addressline-2: gandhi nagar
+	  city: bengaluru
+  gender: male
+- name: sivakumar
+  dob: 2020-01-01
+  addresses:
+	- addressline-1: d-203
+	  addressline-2: gandhi nagar
+	  city: bengaluru
+	  
+	- addressline-1: d-203
+	  addressline-2: gandhi nagar
+	  city: bengaluru
+  gender: male
+
+
