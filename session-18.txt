@@ -1,0 +1,73 @@
+ansible shell vs ansible command module
+----------------------------------------
+shell module
+command module
+
+shell module --> it will use shell environment, means we can use redirections >, pipes | and other shell variables
+
+command module --> it will just run the commands, but can't use shell environment like > , pipe | or variables.
+
+if a simple plain command with out variables, redirections, pipes, etc. we can use command module..
+
+if you want to run shell script inside ansible or complex commands with redirections then we can use shell module
+
+ansible.builtin.user -> works for all distros
+
+useradd/adduser -->
+
+if we use ansible modules we can automatically get idempotency nature..
+
+src: # by default ansible checks in ansible server
+dest:
+
+1. make the connection
+2. import the data
+
+troubleshoot
+--------------------
+
+DB
+---
+check mysql service is running or not
+systemctl status mysqld
+
+check port no 3306 is opened or not
+netstat -lntp
+
+check you are able to connect mysql or not
+mysql -h db.daws78s.online -u root -pExpenseApp@1
+
+ps -ef | grep mysql
+mysql process is running or not
+
+Backend
+--------
+check backend service is running
+systemctl status backend
+
+check port no 8080 is running or not
+netstat -lntp
+
+check you are able to connect mysql or not
+telnet db.daws78s.online 3306
+
+check mysql data is imported
+mysql -h db.daws78s.online -u root -pExpenseApp@1
+show databases;
+use transactions;
+show tables;
+
+ps -ef | grep expense
+
+frontend
+-----------
+systemctl status nginx
+netstat -lntp --> port no 80
+
+telnet backend.daws78s.online 8080
+
+system/os package --> mysql(c language)
+ansible --> PyMYSQL (python)
+nodejs backend --> mysql(nodejs package)
+can java application use mysql nodejs library? no
+

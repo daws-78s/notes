@@ -1,0 +1,54 @@
+variables
+conditions
+functions/filters
+data types
+loops
+
+
+ansible we cant create functions. we can use existing filters...
+
+filter = data transformation/manipulation
+
+devops --> DevOps
+aws --> AWS
+
+if a number less than 10, print less than 10
+otherwise print greater than equal to 10.
+
+number < 10
+
+Ansible is strict, it can't automatically convert text into number
+
+10 --> text
+
+ansible filters are useful. ansible developed in python...
+
+filter is denoted by | (pipe symbol)
+
+dictionary=map=key/value
+
+course: devops
+trainer: sivakumar
+duration: 120hrs
+
+items==list
+
+
+[
+{'key': 'Course', 'value': 'Ansbile'}, 
+{'key': 'Trainer', 'value': 'Sivakumar'}, 
+{'key': 'Duration', 'value': '120hr'}
+]
+
+PyMySQL, or MySQL-python, or for Python 3.X mysqlclient or PyMySQL
+
+Ansible is developed in python
+
+now we are connecting to mysql from ansible which is developed in python
+
+PyMySQL is a dependency for python to connect mysql servers
+
+npm install --> installs nodejs dependency
+pip --> this is for installing python dependencies
+
+python3.11
