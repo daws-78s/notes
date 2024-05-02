@@ -1,0 +1,52 @@
+Ansible Roles
+----------------
+DRY principal --> reuse the code
+	variables
+	functions
+	
+What is Ansible Role?
+
+Role is a proper structure of variables, tasks, templates, handlers, etc. Using Roles we can re use the code...
+
+tasks/ --> We will mention all tasks here
+handlers/ --> We will mention all notifiers here
+templates/  --> We will  mention all templates here, with variables
+files/ --> We will mention all files here, without variables
+vars/ --> variables related to roles are here
+defaults --> low priority variables are here
+meta/  --> dependencies are mentioned here
+
+ansible-playbook -i inventory -e ansible_user=ec2-user -e ansible_password=DevOps321 db.yaml
+
+ansible-config =  /etc/ansible/ansible.cfg
+
+1. ANSIBLE_CONFIG
+
+~/ --> denotes home directory
+
+.j2 --> jinja2 template language
+
+what are handlers in ansible?
+
+handlers are notifiers in ansible, usually when there is a change in config we can notify some task to restart server
+
+11 components --> 3nodejs, 1 java, 1 php, 1 go
+
+deployment
+-----------
+1. create directory
+2. remove old code
+3. download new code
+
+delete existing directory
+create new directory
+download code
+extract code
+
+ansible vault
+---------------
+ansible-vault create <file-name>.yaml
+
+Ansible tags
+Ansible Dynamic inventory
+How Ansible can connect to 10 servers at a time?
