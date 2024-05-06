@@ -1,0 +1,100 @@
+Infrastructure
+-------------------
+Infra is very important to create business...
+
+Disadvantages
+--------------
+1. manually created
+2. takes time
+3. follow the sequence
+	create sg
+	create ec2
+	create r53 record
+4. we need to check each and every resource and note down manually
+5. cost analysis
+
+Infra as a code
+---------------
+1. version control --> we can maintain different versions of infra. multiple persons can colloborate to create infra
+
+2. same infra across environments --> DEV, QA, PROD, etc.
+working in DEV, failed in PROD. run the same code in all environments that create same infra everywhere.
+
+3. CRUD --> Read. 
+4. inventory --> list of resources for the project in terms of infra.
+5. dependency --> dependencies would be automatically resolved while CRUD.
+6. cost --> creation and deletion takes less time, so cost can be reduced.
+7. code reuse --> modules, you can reuse the infra code created multiple times for different projects.
+8. state management --> implicit feature.
+
+Hybrid cloud --> 
+
+1. download terraform
+2. provide the path in env variables
+3. Download AWS CLI
+	https://awscli.amazonaws.com/AWSCLIV2.msi
+
+
+Terraform --> HCL (Hashicorp configuration language)
+
+Variables
+data types
+Conditions
+Functions
+loops
+terraform related concepts
+	outputs
+	locals
+	data sources
+	count
+	dynamic blocks
+	
+ec2 creation
+------------
+1. security group
+2. ec2 instance creation
+
+terraform works with providers. We are using AWS hre. so we should inform terraform that we are using AWS.
+
+1. provider configuration
+
+
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.48.0"
+    }
+  }
+}
+
+provider "aws" {
+  # Configuration options
+}
+
+.tf --> terraform only reads .tf files.
+
+
+<some-name> "" {
+	key = value
+}
+
+Iam user, acces key and secret key
+aws configure --> AWS CLI is already installed. so you can run aws configure in windows
+
+
+1. inbound --> allow everything, or only port no 22.
+2. outbound --> allow everything
+
+
+intialize terraform -->
+
+terraform init --> terraform will check for providers. It will download AWS providers and keep them...
+
+terraform plan --> terraform will shows us the resources it is going to create
+
+validates syntax, if correct then it will show the resource it will create.
+
+terraform apply -auto-approve --> creates infra
+
+terraform destroy -auto-approve --> destroys infra

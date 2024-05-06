@@ -1,0 +1,62 @@
+Ansible Tags
+--------------
+
+deployment
+-----------
+remove old code
+download new code
+restart server
+
+Ansible Dynamic inventory
+---------------
+there are 20 servers runing based on traffic, you need to do some simple thing on emergency basis in all these servers.
+
+1. Query AWS EC2 instances.
+2. Query only specific instances based on project.
+3. Get their IP address
+4. Now connect
+
+aws configure
+
+aws -i inventory
+
+Ansible --> MySQL PyMySQL
+
+Ansible --> AWS botocore boto3
+
+pip3.9 install boto3 botocore
+
+instance name starts with Backend
+
+Backend-1, Backend-2
+
+Backend-date
+
+How ansible connects multiple servers at a time?
+
+t2.micro --> 1cpu 1GB RAM
+there should be some resources consumed to establish connection and run playbooks
+
+forks
+
+Task
+--------
+1. create 3 ec2 servers
+2. update r53 records
+
+authentication
+aws configure
+
+Ansible vs Terraform
+---------------------
+Ansible --> configuration management
+Infra automation --> creaton of servers, records, db, etc. State
+
+We ask terraform to create servers, then we ask ansible to configure servers
+
+{
+	"Name
+	,
+	
+}
+
