@@ -1,0 +1,73 @@
+variables
+data types
+conditions
+loops
+functions
+
+USER=sivakumar --> declaring and assign value to variable
+vars:
+	user: sivakumar
+	
+variable "<var-name>" {
+	type = string/number/bool/list/map
+	default = "<default-value>"
+}
+
+tagging strategy
+-----------------
+name of the resource
+which project
+which module
+which environment
+who created
+which date
+
+terraform.tfvars
+-------------------
+in variable declaration we can give default values.
+
+terraform.tfvars will override default values in variables.
+
+TF_VAR_<var-name>=value
+
+conditions
+------------
+
+if(expression){
+	these will run if expression is true
+}
+else{
+	these will run if expression is false
+}
+
+expression ? "this will run if expression is true" : "run if false"
+var.instance_name == "db" ? "t3.small" : "t3.micro"
+
+expense
+----------
+if DB, instance type should be t3.small
+
+3 instances, db, backend, frontend
+if DB t3.small
+
+and route53 records
+
+few tags are common, project, environment, terraform
+
+
+loops
+------
+count based loop
+for loop
+dynamic block loop
+
+count.index --> 0,1,2
+
+length(<list>)
+
+outputs
+----------
+a=b, b=c, c=d
+x=z, e=f, a=e
+
+a=e, b=c, c=d, x=z, e=f
