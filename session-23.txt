@@ -1,0 +1,52 @@
+expense
+------------
+1. create 3 instances
+2. create 3 records
+
+if db instance should be t3.small
+if frontend daws78s.online --> public ip
+otherwise db/backend.daws78s.online --> private ip
+
+aws_instance.expense --> instance information
+
+
+if frontend ? daws78s.online : db/backend.daws78s.online
+
+interpolation
+-----------------
+
+variable "greeting" {
+	default = "morning"
+}
+
+"Hello {{greeting}}" --> interpolation
+
+"Hello ${var.greeting}"
+
+. --> variable/text
+
+outputs
+locals
+
+locals and variables are same, referring key value pairs
+
+locals can hold expressions and use it wherever you want. You can use variables inside locals. but you can't use other variables/locals inside variables
+
+data sources
+------------------
+going to console, searching it and then using it...
+
+querying and filtering AWS
+
+
+terraform have AWS credentials..
+
+terraform can query and fetch the AMI_ID automatically
+
+few teams created infra manually. our team is using terraform
+
+I want existing default vpc_id...
+
+state and remote state
+for loop
+dynamic block
