@@ -1,0 +1,65 @@
+state and remote state
+-----------------------
+terraform --> IaaC, declarative
+whatever we write we will get
+shell is imperative
+terraform is idempotent also
+
+there is something called state...
+
+whatever we declared terraform should create
+
+declared state[terraform files] == actual state[resources inside provider i.e AWS]/Created infra
+
+I ran, terraform created infrastructure
+I run once again, How terraform will understand what infra it is already created?
+
+terraform.tfstate is the file that terraform tracks the actual infra
+
+I deleted manually inside AWS. but it exists in terraform.tfstate
+
+Refreshing state
+----------------
+it will check terraform.tfstate against AWS...
+
+terraform files[declared state] = AWS infra[actual state] --> false -->
+
+terraform responsibility is to create the infra equivalent to terraform files...
+
+
+terraform.tfstate, declared state, actual state, refresh
+
+in colloboration environment
+remote state
+--------------
+duplicate resources or errors, locking
+
+1 person is creating infra through terraform, can we ask other person also do same thing?
+5min..
+
+there should be some locking mechanism, when one person is creating infra. it should be locked until it is completed
+
+daws78s.doc, daws78s.doc.lock(1kb)
+.lock file --> means someone opened, others are not allowed to edit
+
+local state vs remote state
+----------------------------
+1. there is a chance you delete/edit the file...
+2. it will not work in colloboration environment
+3. there is a chance multiple persons apply/edit the infra
+
+centralise repo --> github
+
+S3 remote state
+----------------
+s3 bucket can be locked with dynamodb table..
+
+
+for loop
+-----------------
+count --> list
+for --> maps
+dynamic
+
+create sg that opens 22,80,8080,3306
+
