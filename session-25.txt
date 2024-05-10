@@ -1,0 +1,102 @@
+variables
+data types
+loops
+	count based
+	for each
+	dynamic
+functions
+conditions
+
+outputs
+data sources
+locals
+state and remote state
+interpolation
+
+how to create multiple environments with terraform
+----------------------------------
+
+using tfvars
+-------------
+code is same --> resource definitions
+
+DEV and PROD
+------------
+DEV, QA, PROD, UAT, etc.
+
+default variable values to override --> tfvars
+
+s3 backend
+-------------
+diff buckets for diff environments
+
+variables
+-----------
+default values
+
+db-dev, backend-dev, frontend-dev
+db-prod backend-prod frontend-prod
+
+db-dev.daws78s.online
+backend-dev.daws78s.online
+frontend-dev.daws78s.online
+
+db-prod.daws78s.online
+backend-prod.daws78s.online
+frontend-prod.daws78s.online
+
+daws78s.online
+
+Project=Expense, Module=DB/frontend-dev/backend-dev Environemt=dev/prod Terraform=true
+
+frontend-dev/frontend-prod
+----------------------------
+
+if key startswith frontend
+
+terraform init -backend-config=prod/backend.tf
+
+terraform plan -var-file=prod/prod.tfvars
+
+workspace
+-----------
+dev, qa, prod
+
+if dev t3.micro
+if prod t3.small
+
+terraform.workspace = dev, prod
+
+variables and their values we should be very careful
+
+seperate repo for dev, seperate repo for production
+
+
+workspace, tfvars
+-------------------
+adv --> less code
+dis --> should be more careful while dealing variables and tfvars. chance of doing something wrong in prod
+
+seperate repos
+------------------
+adv --> clear seperation of environments
+dis --> duplication of code
+
+provisioners
+-------------------
+terraform we are creating instances....
+
+1. local-exec --> where you are running terraform command i.e local
+2. remote-exec --> inside remote machine
+
+ip address into a file
+
+ansible-playbook -i private_ips.txt web.yaml
+
+Linux Server
+-----------
+terraform and ansible install
+clone this code
+and run there
+
+create db, install ansible, pull db playbook confpull db playbook configure itself
