@@ -1,0 +1,125 @@
+Module development
+-------------------
+DRY --> don't repeat yourself
+
+min code
+code reuse
+
+variables --> 
+functions
+
+write resource definition
+left side options are from documentation, you can't change option names
+right side are values, we can give as per project requirement.
+keep variales and their default values
+override if required
+
+function --> block of code
+
+call the function when require --> provide inputs if require
+
+advantages
+-----------
+code reuse
+best practices can be implemented and forced to use
+easy to maintain/update
+we can keep few restrictions based on company guidelines
+
+Module developers --> they create tf code with best practices
+Module users --> they use the module code
+
+1. custom module development
+2. open source modules
+
+
+VPC(virtual private cloud)
+--------------------------
+they have to buy servers.
+deploy the code in servers
+
+development --> only dev servers
+testing team --> only QA servers
+production support --> limited access to prod servers
+call center --> just internal apps
+devops --> full access to all servers
+linux admin --> all servers access
+
+data center
+--------------
+space
+watchman
+network
+resources
+maintainance
+logicial seperation of servers
+power
+
+VPC
+----------------
+VPC is like a mini data center for a project. resources created inside VPC are isolated and private to ourself.
+
+VPC Name = village name
+VPC CIDR = village pincode
+
+subnets = streets
+arch = internet gateway
+
+routes = roads
+
+public and private subnets
+----------------------------
+subnets which are connected to internet gateway are called public subnets
+subnets which are not connected to internet gateway are called private subnets...
+
+route tables and routes
+
+192.168.1.3
+Ip address --> 32 bits
+4 octates --> each octate 8 bits
+
+2^32 IP addresses possible
+
+10.0.0.0/16 --> first 16 bits are fixed, you are not allowed to change
+
+10.0 --> fixed
+each octate range --> 0 - 255
+
+10.0.0.1
+10.0.0.2
+.
+.
+.
+.
+10.0.0.255
+
+10.0.1.0
+10.0.1.1
+.
+.
+10.0.1.255
+
+256*256 = 2^16 = 64,000
+
+10.0.1.0/24 --> 10.0.1 is fixed. You can change last octate
+
+10.0.1.0, 10.0.1.1, 10.0.1.2 .... 10.0.2.255 --> 2^8 IP address possible
+
+10.0.2.0/24, 10.0.3.0/24, 10.0.11.0/24
+
+256 subnets can be created with this logic
+
+created VPC
+created igw
+attached igw to VPC
+
+created public subnet
+created private subnet
+create db subnet
+
+frontend --> public
+backend --> private
+db --> private. we create in db subnet
+
+2 subnets --> 1a and 1b
+2 private subnets --> 1a and 1b
+2 db subnets --> 1a and 1b
