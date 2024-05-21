@@ -1,0 +1,37 @@
+VPC Peering
+---------------
+peering is optional --> make the peering optional. default is false. if true then peering should be created
+We should get which VPC he wants peering
+
+is peering required --> true
+target_vpc_id --> empty
+in this case lets take default VPC
+
+auto accept can work if in the same account.
+
+acceptor_vpc is empty then auto accept true, otherwise false
+
+expense vpc public route table
+destination --> default VPC CIDR
+
+if count is set, it is list.
+
+
+database subnet group
+-----------------------
+we create a group of data base subnets that is called DB subnet group.
+
+
+outputs
+----------
+Outputs of one resource may become input for another resource
+
+sg --> VPC ID
+
+how to push existing repos to github
+------------------------------------
+git init --> to initialise a folder as git repo
+git branch -M main --> to create new name
+create repo in github
+git remote add origin <https-URL>
+git push -u origin main
