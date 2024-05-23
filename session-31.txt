@@ -1,0 +1,40 @@
+expense-dev-db
+project-name-envrionment-sg-name
+backend ip - 10.0.11.83
+db ip - 10.0.21.225
+
+DB SG Rule
+-------------------------
+MySQL 3306 expense-dev-backend
+MySQL 3306 10.0.0.0/16
+
+allow traffic on 3306 from the instances which are attached to expense-dev-backend SG
+
+Stateful vs Stateless
+-----------------------
+
+State == Storage
+
+MySQL = data is stored == Stateful application
+
+Backend = no storage for backend == Stateless application
+
+Frontend = no storage for frontend == Stateless application
+
+very difficult to retreive data from Stateful applications
+
+easy to restore backend application, because of no state
+
+DB Admin teams
+----------------------
+every day backup, every 3hr/6hr backup
+test the backup/restore
+high availability(atleast 2 servers) and data replication(duplicate into another server for safety)
+load balancing
+major upgrade --> 5.3 --> 5.4
+minor upgrade --> 5.3.1 --> 5.3.2
+
+
+Database services
+--------------------
+RDS --> upgrades are cloud responsibility, HA is cloud responsibility, load balancing, snapshot/backup is easy to configure
