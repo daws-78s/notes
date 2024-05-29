@@ -1,0 +1,57 @@
+Project Architecture
+Application Architecture
+
+Project --> rare
+Application -> Subjected to frequent change
+
+SG -> rare
+SG Rule -> frequent
+
+EC2, AMI, Launch template --> application
+
+Expense --> Project
+frontend, backend, database --> components
+
+expense-infra-dev
+	db-dev.daws78s.online
+	backend-dev.daws78s.online
+	frontend-dev.daws78s.online
+expense-infra-prod
+
+ansible server --> nodes
+
+no need of ansible server, we will pull ansible playbooks directly from github
+
+Open VPN
+-----
+ubuntu
+openvpnas --> linux username
+key based AMI
+
+public/private key pair generate
+imported public key into AWS
+then we connect using private key
+
+admin username:openvpn
+password: Abcd@1234
+
+*.app-dev.daws78s.online
+
+cart.app-dev.daws78s.online
+catalogu.app-dev.daws78s.online
+
+application infra
+-------------------
+Create instance
+configure it using Ansible
+stop the server
+take AMI
+delete instance
+target group
+backend launch template
+autoscaling
+autoscaling policy
+listener rule --> 80, 
+
+backend.app-dev.daws78s.online --> backend target group
+

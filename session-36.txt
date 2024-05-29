@@ -1,0 +1,40 @@
+Backend
+--------------------
+1. create EC2 instance first
+2. connect to the server using null resource and remote exec.
+3. copy the script into instance.
+4. run ansible configuration
+5. stop the server
+6. take AMI
+7. delete the server
+	aws configure
+	aws
+8. target group creation
+9. launch template
+10. autoscaling and policy
+11. listener rule
+	
+match the declared configuration with actual configuration
+
+actual configuration of server
+server state --> terminated
+declared state --> create the server
+
+
+userdata
+---------------------
+once ec2 instance created, aws will run userdata script.
+
+1. we have to login inside instance and check the logs,
+2. once userdata is changed, AWS will not update EC2
+	delete EC2 manually and run terrafrom again
+	
+remote provisoner
+---------------------
+execute the scripts in remote servers
+ansible-playbook -i <inventory> <yaml-name> -e var=value --> ansible server
+
+ansible pull
+--------------
+install ansible in remote node
+ansible-pull -i <inventory> <ansible-playbook-git-url> <yaml-name> -e var=value --> remote node

@@ -1,0 +1,104 @@
+Load balancing if there are multiple servers...
+Autoscaling based on traffic
+
+deployment
+----------
+PROCESS-1
+----------
+stop the server
+remove old code
+download new code
+restart the server
+
+there is downtime, if 1 server easy to do..
+
+get all the server IP address
+give it to ansible
+ansible can connect to all the servers one by one and complete the deployment process...
+
+
+PROCESS-2
+----------
+business going on
+
+create one new instance
+use ansible to configure
+stop the server
+take AMI of the server
+remove old servres one by one and create new servers one by one
+total 3 servers
+ 1. create one new server, delete one old server
+ 2. create 2nd new server, delete 2nd old server
+ 3. create 3rd new server, delete 3rd old server
+ 
+Load balancer
+Target group
+listener
+listener rules
+
+
+user, cart, catalogue, shipping, payment
+
+daws78s.online --> home page
+daws78s.online/api/cart --> if path is /api/cart --> cart target group
+daws78s.online/api/payment --> if path /api/payment --> payment group
+m.facebook.com --> mobile code
+facebook.com -> website code
+ 
+cart.daws78s.online --> host path
+daws78s.online/cart --> context path
+
+10 rules --> final default rules
+
+
+Autoscaling
+--------------
+avg work per day = 5hr
+50hr work daily in a team
+
+100hr daily --> recruit new persons
+
+JD, roles and responsbilities are provided by leads and managers
+
+20hr daily --> fire some resources
+
+launch template
+
+image == photo, person should stop
+
+stop the server, take AMI
+
+current min --> 75
+5min after --> 90. 76, 85
+
+what was the mistake
+-----------------------
+nginx
+index page
+nginx will not run even we create instance out of AMI, if not enabled
+
+delivery manager balances the requests from client, --> ALB
+he would be listening to some one. --> Listener
+he has some rules to forward the work to teams based on the request type from client  --> Rules
+request goes to particular team --> Target group
+there are some check whether employee is active or not --> health check
+employee --> EC2
+draining --> NP
+
+HR --> ASG
+JD --> launch template
+Work policy --> Autoscaling Policy(AVG CPU utilisation)
+
+
+2 instances manually created, I understood I need more in future, so took the help of HR
+
+create one instance, take AMI, create launch template, create ASG
+then start the project
+
+VPN
+
+hotstar --> VPN --> US content
+
+CKA
+AWS Architect associate
+terraform
