@@ -1,0 +1,20 @@
+*.app-dev.daws78s.online --> APP ALB
+
+backend.app-dev.daws78s.online --> backend
+user.app-dev.daws78s.online --> user
+
+backend
+-------------
+instance creation
+configure using ansible, terraform null resource
+stop instance
+take AMI
+delete the instance
+
+create launch template
+create target group
+create ASG
+create ASG policy
+add rule to the listener
+
+backend.app-dev.daws78s.online --> backend
