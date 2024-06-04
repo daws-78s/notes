@@ -1,0 +1,78 @@
+imp file --> duplicate the file
+do the changes
+review the changes
+test the file
+if good, then change in main file
+
+Git --> Single source of truth
+
+CICD
+------
+Single paper --> write everything in single paper from all
+
+Multiple papers --> finally colloborate imp points into one paper
+
+Colloboration
+
+Branching
+-----------
+main --> points to Production, direct changes are not at allowed.
+through some review process
+
+main --> feature branch
+
+do changes in feature branch --> get reviews --> run some tests --> scan the code
+
+feature --> main
+
+everyone should create one branch for any change...
+
+4bd656fd136438832b47ed66a211797afc53b3fb --> SHA Code --> 40 chars
+
+key --> value
+
+
+4bd656fd136438832b47ed66a211797afc53b3fb --> current code in the workspace
+
+echo "Hello World" | git hash-object --stdin --> prints sha code on the screen
+git cat-file <commit id> -p --> print the info about sha code
+
+git checkout -b --> create new branch and change the workspace into new branch
+
+Merge
+-------
+Merge
+rebase
+
+Merging
+---------
+create another branch
+do the changes in that branch
+raise PR
+get the approval
+then merge it
+
+merge gives us a new merge which has 2 parents, we can clearly see the history
+
+Rebase
+---------
+rebase --> change the base
+no extra commit
+commit id are changed
+no history is preserved, it is rewritten as if it is done in main branch
+looks clean, linear history
+
+single branch --> multiple persons are working --> prefer merge
+if you want to keep the history --> prefer merge
+blindly go for merge, if you are not sure
+
+single branch --> single person --> prefer rebase
+if you dont want history --> prefer rebase
+if you want clean structure --> prefer rebase
+
+conflicts
+----------------
+if git findsout 2 different content in the same line, it cant take decission. people who wrote the code should sit together and resolve conflict
+
+if main branch is moved forward
+another branch is trying to merge the changes, then conflict will come

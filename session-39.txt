@@ -1,0 +1,96 @@
+web-dev.daws78s.online --> frontend
+http --> fixed response
+https://web-dev.daws78s.online
+
+CDN --> frontend ALB --> https://web-dev.daws78s.online --> frontend TG --> frontend instance on port no 80 --> /api/ --> backend.app-dev.daws78s.online --> backend TG on port no 8080 --> DB
+
+infra is good now
+
+entire code --> zip file (integration of code) --> Continous Integration
+
+Build and release engineers
+---------------------------
+clone manually
+npm install --> get the libraries from internet
+npm build
+
+push commit to GitHub
+---------------------
+Shift Left
+---------------
+clone the code
+compile the code
+unit testing
+scan the code --> DevSecOps
+	Static source code analysis --> SonarQube
+	SAST --> Security point of view
+	DAST --> Dynamic application security testing
+	Open source scanning -->
+	docker image scanning --> AWS ECR
+deploy to DEV
+functional testing
+	
+Old days
+---------------------
+deploy in DEV
+deploy in QA --> Run test cases
+deploy in PROD
+	sanity testing
+	regression testing
+	security testing
+	vulnerabilities testing
+
+
+brick --> basic unit of the block
+wall --> testing the wall is functional testing --> good
+
+function --> testing a function is called unit testing
+
+Git
+--------------
+GitOps -> everything should be inside git, no manual process
+
+Git --> single source of truth, version control
+
+Git
+-----------------
+
+created repo in console
+clone the repo
+add authentication
+do changes
+git add . --> add code to temp area
+git commit -m "some" --> commit the code to local repo
+git push --> push the code to central/remote repo
+
+existing folder
+----------------
+create repo in central
+git init --> .git directory
+git remote add orign <git-url>
+git add git commit git push
+
+generate public/private key pair
+keep public key in server
+keep private key with us
+pass private key at the time of authentication
+
+ssh config
+.ssh --> create file config without any extension
+
+
+Host github.com
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/github
+	
+branches
+merge
+rebase
+conflicts
+branching strategy
+
+
+rm -rf .git
+git init
+git remote add origin <url>
