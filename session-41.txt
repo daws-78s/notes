@@ -1,0 +1,130 @@
+Branching Strategy
+---------------------
+developers writing the code in non main/master branches. How it gets upto main/master branch. How the deployment happens in diff environments like DEV, SIT, UAT, PERF, PRE-PROD, PROD, SEC
+
+Waterfall Model
+----------------------
+
+Desktop applications --> Have to support multiple versions
+	windows 11, 10, 11.3
+	Ms Office 2021, 2019, 2016, 2013
+		MS Office 2013 --> huge bug
+		get the code released for 2013 latest version
+		resolve the bug
+		release the patch
+	MS Office 2024
+
+atleast 3 months to release the change
+		
+Web applications --> there is no point of versions
+
+hotfix
+----------------
+main --> PROD
+emergency bug --> 2000 2/-, redbus completely down
+P0 --> SLA --> 30min
+P1 --> ticket --> SLA --> Service level agreement --> 1hr
+P4
+hotfixes branches are directly merged to main branch and deployed to PROD
+
+a small code change can fix the issue
+
+DEV --> DEV Test --> QA --> QA testing --> UAT --> UAT testing --> PRE-PROD --> regeression testing, sanity testing --> PROD
+1 week
+
+hotfix/2024-06-05
+
+
+main(long lived) branches --> main, development
+source: main
+destination:  main, development
+
+development
+----------------
+development --> current development going on, it represents current state of the project development
+
+source: main
+destination: nothing
+
+feature branches
+-----------------
+feature/ai-image-generator --> one team --> 10-JUN-2024
+feature/call-recording --> another team --> 10-AUG-2024
+
+source: development
+destination: development
+
+feature/ai-image-generator
+--------------------
+multiple persons --> should use merge
+
+feature/ai-image-generator --> PR --> development
+
+deploy to DEV environment --> developers will perform the testing from development side..
+
+dev team lead confirms features are tested properly....
+
+Build and Release team --> present they are called devops engineers
+
+create one branch from development --> release branch
+
+Release branch
+------------------
+source: development
+destination: main, development
+whatsapp: 5.3.1
+upcoming release: 5.4.0 -> 10-JUN-2024
+upcoming release: 5.5.0 -> 10-AUG-2024 --> call-recording and caller ID
+
+release/5.4.0 --> deploy into QA --> QA team tests the code
+from now on every body should work in this release branch only since it is fixed already.
+
+lot of defects
+
+QA team sign off --> clients will directly QA lead. first responsible person QA
+
+
+Feature branching model/GitHub Flow
+--------------------------
+2 weeks/ 4 weeks
+
+modules are independent projects...
+web versions
+
+one branch/feature --> one person -> rebase/ merge
+
+price, description, date
+
+include-date --> do the changes --> 
+
+we have one release for every 2 weeks, we follow feature branching
+main --> Production
+feature branch from main branch
+they do the development and deploy to DEV environment
+if that is success, they will raise PR, if the PR is approve they merge changes to main branch.
+then we perform QA and UAT deployment.
+once we get QA and UAT sign off, we will deploy to PROD through CR process.
+
+CR --> change request process
+
+what are the changes in the release
+what is the date and time of release
+if failure, how can we rollback? what is the plan?
+any downtime? --> yes/no
+QA testing
+UAT testing
+Scans
+Delivery manager from TCS
+QA manager
+Client approval
+
+deployment window --> 10-JUN-2024 03:00-04:00 AM
+
+deployment failed, CR failed
+
+why it is failed, stop the next sprint
+
+RCA --> Root cause analysis
+
+1. you are working on latest modern things from the beginning
+2. you worked on legacy things, you were part of migrating from legacy to modern
