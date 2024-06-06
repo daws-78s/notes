@@ -1,0 +1,61 @@
+VPC
+-------------
+create VPC
+create IGW
+attach IGW to VPC
+create subnet
+create route table
+create routes
+attach route table subnet
+
+create VPC
+
+NAT Gateway
+-----------
+private servers can't connect to internet or can't accept connections from internet
+
+traffic originating from servers --> outbound
+traffic to the servers is called --> inbound
+
+NAT gateway --> public subnet
+this is to enable outbound internet traffic to the private servers.. general use cases fetching the updates, downloading packages from internet
+
+IP keeps on changing, IP should not be changed. We need static IP.
+
+Elastic IP == Static IP
+
+
+
+resource names, variable names, output names these names related to terraform.
+
+Name tags are related to user.
+
+
+terraform names can have _ to seperate words
+
+user names can have - to seperate words
+
+main or this if only one resource...
+
+tagging strategy
+--------------------
+expense-dev
+
+<project-name>-<environment>
+
+Terraform = true
+Project = mention project name
+Environment = dev/prod
+
+1. create VPC
+2. create IGW
+3. attach IGW to VPC
+4. create subnets (public/private/database)
+	we decided every project inside joindevops.com should have HA
+	So we should force to create 2 public/private/database subnets
+	expense-public-us-east-1a
+	expense-public-us-east-1b
+	
+1. create repo in github
+2. clone in local laptop
+

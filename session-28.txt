@@ -1,0 +1,23 @@
+2 elements --> public subnet
+0
+1
+How to select a particular element from a list
+0th --> count.index
+1st --> count.index
+
+
+VPC Peering
+------------
+1. CIDR should not be same
+2. VPC can be in
+	* either same region of same account
+	* either diff region of same account
+	* either same region of diff accounts
+	* either diff region of diff accounts
+3. Routes should be added to subnets
+
+Requestor - expense VPC
+Acceptor - Default VPC
+
+1. create peering connection
+2.
