@@ -1,0 +1,19 @@
+Bastion/Jump Host
+------------------------
+We will create one EC2 instance in public subnet, Bastion host
+
+Allow backend servers and DB servers to connect from bastion host
+
+user --> bastion host --> RDS, Backend servers
+
+Public --> PR officer --> PMO office
+
+Snapshot
+-------------------------
+when you delete RDS, it will automatically snapshot for safety before delete.
+
+snapshot is attached to VPC.
+
+You cant delete VPC, because it has the dependency resource of snapshot
+
+db_host = expense-dev.czn6yzxlcsiv.us-east-1.rds.amazonaws.com

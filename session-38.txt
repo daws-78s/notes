@@ -1,0 +1,112 @@
+1. VPC --> Project
+	vpc
+	subnets --> public, private, database
+	igw --> attach to VPC
+	route tables --> public, private, database and associations
+	eip
+	NAT
+	routes
+	peering
+	peering routes
+2. SG --> Project infra, SG rules --> app infra
+3. VPN
+4. DB
+5. APP ALB
+	listener -> should be listening on particular to accept connections
+	rules --> based on rule, it can redirect traffic to different target groups
+	target groups --> group of instances belong to particular component/module
+	*.app-dev.daws78s.online --> APP ALB
+		backend.app-dev.daws78s.online --> backend target group
+		user.app-dev.daws78s.online --> user target group
+6. ACM certs
+7. web ALB
+
+8. backend
+		create instance
+		configure using null resource, ansible
+			install nodejs
+			create user and directory
+			download and unzip code
+			create systemctl service
+			install mysql client
+			load schema
+			start the service, must enable
+		stop the instance
+		take AMI
+		delete the instance
+		
+		create target group
+		create launch template
+		create ASG
+		create ASG policy
+		create listener rule
+9. frontend same as above
+
+10. Cloudfront
+--------------------------
+
+ISP --> download movies with high speed.
+
+Home --> ISP servers --> download movies from internet and store them in their servers
+
+small website to download movies
+
+users open this website --> click download
+
+high speed download
+
+ISP servers --> cache servers
+
+cache
+
+netflix --> Servers are in US
+content servers --> across the globe
+
+mummy --> download movie from US servers --> Indian cache servers
+
+CDN --> content delivery network
+edge locations
+
+us-east-1 --> CDN --> edge locations are provided by AWS
+
+images, videos are static content and high memory
+code --> dynamic content
+
+https://web-dev.daws78s.online/api/transaction --> backend.app-dev.daws78s.online/transaction
+
+backend.app-dev.daws78s.online --> backend servers
+
+10.0.11.135:8080/transaction
+
+HTTP Methods(Verbs) CRUD
+------------------
+GET --> requesting for information, read only request (READ)
+POST --> Creating information. calling multiple times is unsafe, not idempotent (Create)
+PUT -- UPDATE, resources update, safe
+DELETE --> Deleting the resources, safe
+
+files are in some source
+
+CDN --> connects to source and fetch the data
+
+/images -> enable caching
+/static --> enable caching
+/* --> web-alb
+
+when you did changes to website, create invalidation --> CDN will delete data from edge locations
+
+CICD
+---------------------
+
+developer doing changes
+build everything again
+compile
+dependencies install
+scan
+unit tests
+zip and push to S3/nexus
+
+CD
+-----
+
+

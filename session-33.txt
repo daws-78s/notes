@@ -1,0 +1,92 @@
+R53 records
+----------------
+backend.daws78s.online --> private IP
+frontend.daws78s.online --> private ip
+daws78s.online --> public ip --> private ip
+
+[frontend]
+daws78s.online
+
+[backend]
+backend.daws78s.online
+
+db.daws78s.online = RDS end point
+
+frontend_public
+frontend_ansible
+frontend_bastion
+
+frontend SG
+-----------
+22 expense-dev-ansible
+
+
+CNAME vs A
+
+A --> IP
+CNAME --> another domain
+expense-dev.czn6yzxlcsiv.us-east-1.rds.amazonaws.com
+
+for i in $(ls -dr */) ; do echo ${i%/}; cd  ${i%/} ; terraform destroy -auto-approve ; cd .. ; done
+
+
+Client, Delivery Manager, Team leads, Team members
+
+DB lead
+----------
+team members
+
+Backend lead
+----------
+team members
+
+frontend lead
+----------
+team members
+
+client --> ui work --> DM --> frontend lead --> team members
+client --> backend work --> DM --> backend lead --> team members
+client --> data work --> DM --> data lead --> team members
+
+delivery manager balancing the load of work == Load Balancer
+client = User
+teams = target group
+members = ec2 instances
+
+https://www.facebook.com --> 443
+http://www.facebook.com --> 80
+
+health check
+---------------
+un healthy thershold --> 2 times try --> remove him
+3 times --> He is available --> healthy
+
+if frontend, port no 80 is working and able to get response --> healthy
+http://<ip-address>:80
+
+if backend
+
+http://<ip-address>:8080 --> no response --> unhealthy --> no more requests further
+
+HTTP codes
+-----------------------
+Informational responses (100 – 199) 
+Successful responses (200 – 299)
+Redirection messages (300 – 399)
+Client error responses (400 – 499) --> client side mistake
+400
+404 --> not found
+Server error responses (500 – 599)
+
+facebook.com/fjdsfLFDHS --> 404
+403 --> FORBIDDEN
+
+something wrong happened , please try again later
+there is server side issue, we are working on it
+
+ALB
+listener
+rules
+target groups
+health checks
+
