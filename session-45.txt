@@ -1,0 +1,74 @@
+1. infra should be ready to deploy application
+
+ubuntu OS user name is ubuntu
+we must give a key for this
+
+public-ip:8081 --> 5min
+
+maven type artifacts
+----------------------
+first name
+last name
+PAN/aadhar number
+
+we have different projects in the world, projects have components/modules inside. components/modules/applications have different version inside.
+
+group id, artifact id, version
+
+com.expense --> group id
+backend --> artifact id
+1.0.0 --> version
+
+http://52.87.193.86:8081/repository/backend/
+
+nexus artifact uploader
+
+backend-1.1.0.zip
+
+${artifactid}-${appVersion}.zip
+
+
+http://52.87.193.86:8081/repository/backend/com/expense/backend/1.1.0/backend-1.1.0.zip
+
+http://52.87.193.86:8081/repository/backend/com/expense/backend/1.2.0/backend-1.2.0.zip
+
+CD
+----------
+backend --> CI --> up stream
+CI should pass artifact as input, nothing but version
+backend-deploy --> CD --> down stream
+
+evo laptops -- intel certified laptops
+
+10hr battery life
+10sec boot time
+powerful processor
+low heat
+
+blue screen
+display is gone
+too much heat
+
+x1 carbon --> 45K
+	8/10th generation processor
+	i5/i7
+	8/16G RAM
+	
+Jenkins have the application version, it should pass version to terraform, terraform should create EC2 instance and pass app version to ansible
+
+ansible should download that package from nexus, configure the EC2
+
+group --> what are the packages used in company, will be here
+hosted --> your repos
+
+disable
+--------------
+proxy --> first they check here, if not available they will get from internet, keep it in local
+
+Java --> .jar file
+
+Code --> compile --> bytecode
+nodejs, python, go --> no bytecode
+
+
+

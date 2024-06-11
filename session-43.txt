@@ -1,0 +1,99 @@
+trigger the job, Pre build, build, post build
+
+freestyle disadvantages
+--------------------------
+1. anyone can login and do the changes, difficult to track what went wrong
+2. difficult to restore
+3. I can't see the history, no versions
+
+scripted way
+----------------
+1. review can be done before do something.
+2. easy to restore
+3. track the changes
+4. maintains the history
+
+
+1 acre --> 1 person do
+100 acres -> He employs resources
+
+distributing the work to diff resources...
+
+Jenkins is a master node.
+
+install agents and distribute the pipelines to the agents...
+
+Agent-1 --> windows environment
+Agent-2 --> Mac environment
+Agent-3 --> Chrome environment
+
+master and slave
+master and node architecture
+
+1. when work is there, master calls agent and ask them to do work
+2. daily agent comes to master and ask if there is any work
+
+ec2-user DevOps321
+
+15min to create application artifact zip/jar
+
+1hr 15min --> application success
+
+when one person is performing something on the application, others should stop
+
+steps {
+                echo "Hello ${params.PERSON}"
+
+                echo "Biography: ${params.BIOGRAPHY}"
+
+                echo "Toggle: ${params.TOGGLE}"
+
+                echo "Choice: ${params.CHOICE}"
+
+                echo "Password: ${params.PASSWORD}"
+            }
+			
+How to configure github to jenkins webhook
+
+system-1 something happend, we need to inform system-2
+when events those can be notified.
+
+when developer pushed code to github, we need to trigger the pipeline
+
+pipeline{
+	agent{
+		label 'java-agent'
+	}
+	options{
+		timeout(time: 30, unit: 'MINUTES')
+	}
+	environment{
+		Greeting = 'Hello World'
+	}
+	parameters{
+	
+	}
+	stages{
+		stage('Build'){
+			steps{
+				sh 'echo this is build'
+			}
+		}
+		stage('Test'){
+			steps{
+				sh 'echo this is build'
+			}
+		}
+	}
+	post{
+		always{
+		
+		}
+		success{
+		
+		}
+		failure{
+		
+		}
+	}
+}

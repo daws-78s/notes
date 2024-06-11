@@ -1,0 +1,65 @@
+init
+plan
+apply
+
+CICD
+------
+CI --> Continous Integration
+	install dependencies
+	artifact -->
+	Java --> jar file
+	dotNet, Python, NodeJs --> zip
+	upload artifact to some location
+	
+Build File
+----------
+Java --> maven --> pom.xml
+Python --> pip --> requirements.txt
+NodeJs --> npm --> package.json
+DotNet --> Nuget --> project.json
+
+our project details like name, verion, description
+dependencies and its versions
+
+npm test --> 
+
+NodeJs
+---------
+*.js files
+package.json
+
+NodeJs build file --> node js code and node modules
+every verion should have a seperate artifact/zip file/build file.
+
+backend-1.0.0.zip
+backend-1.1.0.zip
+
+-rw-r--r--  1 ec2-user ec2-user  1882 Jun 10 02:49 TransactionService.js
+-rw-r--r--  1 ec2-user ec2-user  1093 Jun 10 02:49 Jenkinsfile
+-rw-r--r--  1 ec2-user ec2-user   142 Jun 10 02:49 DbConfig.js
+drwxr-xr-x  2 ec2-user ec2-user    25 Jun 10 02:49 schema
+-rw-r--r--  1 ec2-user ec2-user   411 Jun 10 02:49 package.json
+-rw-r--r--  1 ec2-user ec2-user  3553 Jun 10 02:49 index.js
+-rw-r--r--  1 ec2-user ec2-user 31913 Jun 10 02:49 package-lock.json
+drwxr-xr-x 82 ec2-user ec2-user  4096 Jun 10 02:49 node_modules
+
+zip -r <file-name.zip> <what-files-to-zip>
+
+zip -r backend-${appVersion}.zip */
+
+Repository
+------------
+Git --> store the code, not for packages or artifacts
+Nexus --> store the artifacts, not for code
+
+8081 --> nexus
+8080 --> jenkins
+
+SRE
+------------
+Installation
+RBAC
+Upgrade
+No downtime
+monitor
+Backup
