@@ -1,0 +1,16 @@
+http://54.162.115.120:8081/repository/backend/com/expense/backend/1.2.0/backend-1.2.0.zip
+
+http://{{ nexus_url}}:8081/repository/{{ component }}/com/expense/{{ component }}/{{ appVersion }}/{{ component }}-{{ appVersion }}.zip
+
+tools/sre team
+DevOps team
+networking team
+
+raise a request to accept connections from tools
+destination: backend
+source: jenkins
+port: 22
+protocol: ssh
+
+SOP --> Standard operating procedure
+------------------------------------

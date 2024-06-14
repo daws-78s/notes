@@ -1,0 +1,51 @@
+without CI
+-------------
+there will be one linux server
+
+build and release team
+----------------------
+clone the code
+install node js
+run npm install
+create a zip file
+upload the zip file to nexus through nexus API
+
+1week after, once development completed then they will inform
+
+many issues, inform developers, again they will work....
+
+
+again QA, UAT and
+PROD
+------------
+12hr deployment window
+24hr monitoring
+1week monitoring for other defects
+
+no testing, unit testing
+unit testing is about testing the functions, which are basic blocks of programming. Only developers has to do unit testing...
+
+coding standars --> dev, qa, uat
+Static source code analysis --> scan the code, give some recommendations
+you must apply the recommendations to pass the build
+
+SAST --> security related things, analysis will be given to developers they have to fix
+
+DAST --> dynamic security
+
+Open source libraries scan --> libraries scan.. frequently upgrade the libraries
+
+docker image scan --> 
+
+now deploy the code to development
+
+then perform functional testing, developers can take care...
+
+integration testing --> test the entire functionality. this will be performed by QA
+
+sonar scanner
+sonar cli
+sonar agent
+
+curl
+

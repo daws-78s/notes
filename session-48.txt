@@ -1,0 +1,31 @@
+Shift left
+-------------
+unit tests
+scans
+	static source code analysis --> simple code scan
+	SAST --> static application security testing --> security scan in the code
+	open source library scan --> scan the dependencies
+	DAST --> real time attack on the application
+	image scan
+Deploy to DEV
+functional tests --> usually by developers, because it is a microservice
+
+sqa_d1fc0e16ffa676cd707acf283c41e0b02ca0d1fb
+
+overall code, new code
+
+1 year code = overall code
+5.3.0
+
+5.4.0
+
+5.4.0-5.3.0 = new code
+
+unit test --> functions
+
+10 functions --> 100% coverage --> unit tests for 10 functions
+
+80% code should be covered through unit testing
+
+DAST --> 
+DAST --> 
