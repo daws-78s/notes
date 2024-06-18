@@ -1,0 +1,182 @@
+Linux admin --> intermediate level
+project --> manual installation
+Shell scripting
+Ansible
+Terraform
+Jenkins Terraform Ansible Shell --> Sonar, nexus, SAST, DAST, vulnerability scan, unit testing and functional testing
+
+Containerisation
+----------------
+
+Independent House vs Apartment
+
+
+Independent House
+-------------------
+adv
+------
+privacy/security
+more space
+
+disadvantages
+--------
+expensive
+maintainance
+	electricity
+	water
+	internet
+	gas
+construction time is more --> 6months to 1year
+
+
+Flat in apartment --> 100 flats --> 2 years
+-------------------
+adv
+----
+less maintainance
+less cost
+construction time is less
+pool, garden, play area, etc.
+
+disadvantages
+-------
+less privacy/security
+
+
+Nest away PG, A room inside flat will be given for rent
+------------------------------------
+PG
+
+adv
+-----
+no maintainance
+fastest way to occupy/vaccate
+no agreements
+cost very less
+
+disadvantages
+------------
+very less privacy/security
+
+
+2 mem Family --> flat
+8mem family --> independent house
+
+Applications --> Frontend, backend and DB
+
+Monolithic applications
+-----------------------
+
+Enterprise applications
+----------------------
+Frontend and backend are together --> Jboss, Weblogic, Websphere
+A small change in any component should go for full release cycle
+
+.ear --> enterprise archive files
+
+Angular JS, React JS
+---------------------
+Frontend technologies -> Nginx install
+
+java, .NET, Pyton backend technologies --> Tomcat, Jboss
+.war --> Web archive files
+
+API calls --> GET POST PUT DELETE
+
+Microservices
+---------------------
+User, Cart, Catalogue, Shipping, Payment, etc
+
+
+independent house == physical server == enterprise applications
+
+1 physical server hosts 1 application
+
+Virtulisation = monolithic applications
+-------------------
+a big server can be logically divided into multiple servers...
+Hypervisor --> it can host multiple guest servers
+
+booting time --> less time
+cost --> less
+15 --> 1 server RHEL, 1 server windows, 1 server ubuntu, 1 Mac
+
+RAM, HD allocate to VM's.
+2GB RAM, 100GB HD -> 0.5GB RAM, 1GB HD
+
+security --> VM are isolated from one to another
+
+a clear isolation is there between servers, but it should be confgured properly
+
+Microservices == Containersation
+-------------------
+You install containersation in VM, Container dont block the resources..
+
+containers can get the resources dynamically. They dont block resources...
+
+resource utilisation is very high
+booting time is verrrrry less - may be in sec
+
+portability
+
+AMI --> take one full OS, create VM, install application runtime(Java,NodeJs, python, DotNet), configuration(creation of users, foldres, permissions, etc).download code, run the service
+
+take AMI out of this
+
+Docker image == Bare minimum OS + App run time + system pacakges and dependencies + App code = Image
+
+Bare minimum OS --> no unnecessary pacakges --> no cat comman also
+
+Container
+
+AMI --> Static file
+EC2 instance --> if you run AMI, it can create instance --> Running version of AMI is called instance
+
+Docker image --> static file
+Docker container --> running instance of image is called container
+
+install docker --> it will create a group called docker
+
+users who are in docker group or root user can only run docker commands...
+
+usermod -aG docker <user-name>
+
+docker images --> list donw the images
+
+docker pull nginx
+
+group id, artifact id and version
+
+username, image name and version 
+
+joindevops/catalogue:1.0.0
+
+rameshdevops/catalogue:1.0.0
+
+nginx:latest
+nginx:1.13
+
+nginx:alpine
+
+nginx --> Bare minimum OS (ubuntu/Centos/debian/rhel)+nginx 
+
+nginx:perl
+
+nginx:alpine --> Alpine is OS which is max 10MB
+
+docker create <image>:tag --> this will create container
+
+docker ps --> it will show running containers
+docker ps -a --> all containers with any status
+docker start <CID> --> container will start running
+
+docker run = docker pull + docker create + docker run
+
+docker rmi `docker images -a -q`
+docker rm `docker ps -a -q`
+
+How can you access docker container from internet?
+
+By enabling the port, we need to open host port that can redirect traffic to container..
+
+docker run -d -p <host-port>:<container-port> nginx
