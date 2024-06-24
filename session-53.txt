@@ -1,0 +1,50 @@
+docker compose
+
+linux/shell commands --> one by one...
+ansible adhoc commands
+ansible -m yum "name=nginx state=installed". solution is playbook
+SG is the dependency for EC2
+
+depends on
+
+expense --> 3 modules
+1. I have to run docker containers manually...
+2. components are dependent on each other.
+
+docker create network expense
+
+docker run -d  -p 8080:8080 --name backend --network expense backend
+
+mysql
+backend
+frontend
+
+network: expense
+
+docker compose
+
+- name:
+  vars:
+	course: devops
+  tasks:
+  - name:
+    course: docker
+  
+  - name:
+  
+ 
+mysql --> schema creation, user creation
+
+backend 
+
+frontend
+
+volumes
+------------
+containers are ephemeral by default, once you remove the container it will remove the data also..
+
+1. unnamed volumes. create a directory in linux and mount to container using -v host-path:container-path
+2. named volumes
+
+VM 		Containers
+legacy	Microservices
