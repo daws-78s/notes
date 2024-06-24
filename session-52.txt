@@ -1,0 +1,69 @@
+Docker home
+
+/var/lib/docker
+
+CIS hardening the server...
+
+https://github.com/daws-78s/concepts/blob/main/resizeDisk.MD
+
+
+docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        inet6 fe80::42:aeff:fe21:744b  prefixlen 64  scopeid 0x20<link>
+        ether 02:42:ae:21:74:4b  txqueuelen 0  (Ethernet)
+        RX packets 2424  bytes 290393 (283.5 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 2759  bytes 8274549 (7.8 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens5: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 9001
+        inet 172.31.40.48  netmask 255.255.240.0  broadcast 172.31.47.255
+        inet6 fe80::cbd:9dff:fe37:8def  prefixlen 64  scopeid 0x20<link>
+        ether 0e:bd:9d:37:8d:ef  txqueuelen 1000  (Ethernet)
+        RX packets 554838  bytes 789949073 (753.3 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 57465  bytes 6667012 (6.3 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+veth7c453e6: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::ec2a:eeff:fe58:116e  prefixlen 64  scopeid 0x20<link>
+        ether ee:2a:ee:58:11:6e  txqueuelen 0  (Ethernet)
+        RX packets 6  bytes 504 (504.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 27  bytes 1906 (1.8 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+		
+ethernet
+-----------
+172.31.40.48
+
+docker0: --> docker default network --> 172.17.0.1 == modem
+
+mysql --> 172.17.0.2
+backend --> 172.17.0.3
+
+using default network, you can communicate between containers
+
+expense
+---------
+br-32300d271b26
+172.18.0.1
+
+"172.18.0.2"
+"172.18.0.3"
+
+-p 8080:8080
+
+
+
+139.5.248.162 - - [21/Jun/2024:02:56:12 +0000] "GET /static/css/main.b20b6ac4.css HTTP/1.1" 404 188 "http://52.91.44.21/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0"
+2024/06/21 02:56:12 [error] 20#20: *8 open() "/usr/share/nginx/html/static/js/main.bcd36112.js" failed (2: No such file or directory), client: 139.5.248.162, server: localhost, request: "GET /static/js/main.bcd36112.js HTTP/1.1", host: "52.91.44.21", referrer: "http://52.91.44.21/"

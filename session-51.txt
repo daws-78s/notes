@@ -1,0 +1,51 @@
+ENTRYPOINT
+
+CMD instruction can be overriden
+same instruction trying to override with ENTRYPOINT is not working
+
+ping -c5 google.com ping -c5 yahoo.com
+
+you can't override ENTRYPOINT, if you try to do it will go append
+
+CMD vs ENTRYPOINT
+----------------
+you can mix CMD and entrypoint for better results
+
+ping -c5
+
+CMD is used to supply default arguements to ENTRYPOINT, we can always override default args from runtime.
+
+USER
+-----------
+you should not let containers running with root access
+
+ARG
+-----------
+1. ARG can be first instruction in only one case. It can be used to supply the version for FROM instruction
+2. You can have args in Dockerfile, you can supply the values through command through option --build-args
+3. You can always have default values to arg and override if required.
+
+
+ENV vs ARG
+-----------
+1. ENV variables can be accessed both at the time build time and containers
+2. ARG instruction can only be accessed at the time of build or image
+
+How can I access arg inside container?
+
+http://daws78s.online
+
+index.html --> nginx welcome page
+
+ONBUILD
+----------
+this is useful as a trigger, if some one is trying to use your image. you can force them to keep somefiles in their workspace or some configuration
+
+MYSQL:8
+---------
+MySQL developers would have chosen some OS, ubuntu, debian, centos, rhel, etc.
+
+FROM ubuntu:20
+RUN apt install mysql-server
+
+Database is created first. We should load default data.

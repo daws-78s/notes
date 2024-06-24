@@ -1,0 +1,91 @@
+How to get the terminal access of running container
+
+docker exec -it container-id bash
+
+docker inspect container-id/image-id
+docker logs
+
+Dockerfile -->it is the declarative way of creating custom images
+
+Shell --> keep all the commands in a file and run it...
+
+Dockerfile --> keep all the instructions a file i.e Dockerfile and build the image.
+
+Docker image = BaseOS+ App run time+ system packages and application dependencies + app code
+
+docker build -t url/username/image-name:tag . --> will check for Dockerfile
+
+FROM
+-----
+from should be the first instruction to represent base os
+FROM image-name:tag
+
+RUN
+-----
+We wil use RUN instruction to install packages and configure them. RUN instruction wll execute at the time of image creation.
+
+CMD
+-----
+this instruction will run at the time of container creation.
+
+systemctl start backend --> then only you can access backend application
+
+whatever the instruction you give in image to run as container, should run for infinite time.
+CMD ["executable","param1","param2"]
+
+systemctl will not work in containers and images.
+
+CMD 
+
+docker run -it --> create container and login inside...
+docker exec -it
+
+RUN vs CMD
+-----------
+RUN --> executes at build time means image creation time
+CMD --> only executes at the time of container creation i.e docker run
+
+
+LABEL
+---------
+1000 white covers, label the covers
+
+EXPOSE
+---------
+expose instruction will let the users know what are the ports used by image/container
+
+How can you push the image to docker-hub
+-----------------------------------------
+url/username/image-name:tag
+
+you can push images to docker hub, nexus, ECR, jfrog,etc.
+
+url=docker.io
+
+joindevops/expose:1.0
+
+docker push joindevops/expose:1.0
+docker login
+
+joindevops/label:v1.0.0
+
+docker tag joindevops/label:v1.0.0 lable.nexus.joindevops.com/sivakumar/label:v1
+
+
+ENV
+----
+FROM
+ENV trainer="sivakumar"\
+    course="docker" \
+	duration="100hr"
+
+
+COPY vs ADD
+-------------
+COPY and ADD both are to copy the files from workspace to docker image. but ADD have 2 extra advantages
+
+1. It can directly download content from internet into the image
+2. It can directly untart the files into the image.
+
+
+
