@@ -1,0 +1,51 @@
+volumes:
+- unnamed
+- named
+
+-v host-path:container-path
+
+docker run -d -p 80:80 -v /home/ec2-user/nginx-data:/usr/share/nginx/html nginx
+
+1GB app 
+
+single flat 2400 sqft --> only one room --> one family
+
+6GB apps are also running in containers
+
+Multi stage builds --> Java apps
+
+JDK --> Java development kit
+JRE --> Java runtime environment
+
+JDK > JRE
+
+JDK = JRE + development tools
+
+Developers develop java apps in JDK environment, once you get build package. no need to dev environment
+
+
+app code --> compile[JDK] --> java bytecode(build file) .jar, .war [JDK]
+
+run bytecode --> app is up [JRE]
+
+layer1 --> FROM nginx
+layer2 --> FROM nginx+RUN rm -rf /usr/share/nginx/html/index.html --> create image
+
+create layer2 container from layer2 image
+
+layer3 image = layer2+RUN rm -rf /etc/nginx/nginx.conf
+
+create layer3 container from layer3 image
+
+layer4 image=layer3+RUN rm -rf /etc/nginx/conf.d/default.conf
+
+
+FROM nginx
+RUN rm -rf /usr/share/nginx/html/index.html
+RUN rm -rf /etc/nginx/nginx.conf
+RUN rm -rf /etc/nginx/conf.d/default.conf
+USER nginx
+
+
+FROM nginx
+RUN rm -rf /usr/share/nginx/html/index.html
