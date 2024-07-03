@@ -1,0 +1,90 @@
+Volumes in Kubernetes
+--------------------------
+1. external HD
+	SSD, Pendrive, etc.
+2. Google/Microsoft drive
+
+EBS/EFS
+
+1. HD should be as near as possible to the computer.
+2. Google drive, can be anywhere in the world. Network is used for file sharing. NFS . Network File sharing
+
+1. Static Provisioning
+2. Dynamic Provisioning
+
+Static Provisioning
+--------------------------
+
+EBS
+-----------
+Mumbai --> Region
+
+North mumbai --> AZ-1a
+South mumbai --> AZ-1b
+
+
+1. I need to create the EBS volume
+2. You need to install the drivers. I have to install EBS related drivers in EKS cluster.
+kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.32"
+3. Your nodes should have access to connect with EBS volumes. Attach EBSCSI policy to the EC2 instance role.
+
+wrappers...
+
+You can represent EBS volume inside kubernetes with a resource called Persistant Volume. This is equivalant to EBS storage inside kubernetes cluster...
+
+PVC --> Persistant volume claim. Pods should claim I want the volume. Pods can claim through resource called PVC.
+
+1. If your PV is not available
+-----
+check drivers installed or not
+check your ec2 have the role and permission
+
+if instances are creted in 1a, 1b and 1c and volume is in 1c.
+
+https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/
+
+ alpha.eksctl.io/cluster-name=expense-1,alpha.eksctl.io/nodegroup-name=expense,beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=m5.large,beta.kubernetes.io/os=linux,eks.amazonaws.com/capacityType=SPOT,eks.amazonaws.com/nodegroup-image=ami-0c2d8d65bc57661b5,eks.amazonaws.com/nodegroup=expense,eks.amazonaws.com/sourceLaunchTemplateId=lt-05ae8ef4c03b3c009,eks.amazonaws.com/sourceLaunchTemplateVersion=1,failure-domain.beta.kubernetes.io/region=us-east-1,failure-domain.beta.kubernetes.io/zone=us-east-1c,k8s.io/cloud-provider-aws=067c0e6d18e638ea36b4b73b1dc743b8,kubernetes.io/arch=amd64,kubernetes.io/hostname=ip-192-168-34-220.ec2.internal,kubernetes.io/os=linux,node.kubernetes.io/instance-type=m5.large,topology.ebs.csi.aws.com/zone=us-east-1c,topology.k8s.aws/zone-id=use1-az6,topology.kubernetes.io/region=us-east-1,topology.kubernetes.io/zone=us-east-1c
+ 
+ 1. Admins
+ 2. Users
+ 
+as a application devops engineer, I will get access to expense namespace.
+
+1. users send email to storage team for creation of volume. AWS storage team will create volume and give you ID.
+2. users send email to k8 admin to create pv for them with the ID.
+3. user can claim using PVC.
+
+Dynamic Provisioning
+---------------------
+1. You need to install the drivers. I have to install EBS related drivers in EKS cluster.
+kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.32"
+2. Your nodes should have access to connect with EBS volumes. Attach EBSCSI policy to the EC2 instance role.
+3. someone on behalf of you should create volume and equivalant PV automatically --> dynamic provisioning that one is storage class.
+
+so admins create sc for every project as best practice.
+
+Static
+---------
+kid --> Mother --> Father --> Money
+Pod --> PVC    --> PV     --> Storage/Volume
+
+Dynamic
+---------
+kid --> Mother --> E-Wallets --> Money
+Pod --> PVC    --> Storage Class --> Storage
+
+
+
+EFS --> Elastic File system
+---------------------------
+EBS vs EFS
+------------
+1. EBS is like hard disk, volume and instance should be in same AZ-1a
+2. EFS is through NFS protocol, it can be anywhere
+3. EBS volume is static, it can increase on its own.
+4. EFS is completely dynamic in storage, it can automatically expand memory
+5. Which is suitable for DB applications like MySQL. EBS because of less latency
+
+application is in mumbai , database is in US
+
+

@@ -1,0 +1,63 @@
+1. image building
+	develop in vscode
+	push to github
+	pull in workstation
+	build images
+	push to docker hub
+	
+2. login to workstation
+	install docker, kubectl and eksctl
+	either aws configure or attach the role
+	eks.yaml
+	now create cluster through eksctl command
+	kubectl get nodes
+3. develop K8 YAML files
+	push to github
+	pull in workstation
+	apply using kubectl command
+
+namespace
+pod
+multi container
+1 CPU = 1000m or 1024m
+resources:
+	  # soft limits
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+		
+if there is a code chage, should I go for build or not?
+
+code and configuration
+
+what is configuration?
+db urls, db usernames, passwords, api endpoint, other system urls.
+
+keep the key inside code, but value should be out of the code.
+
+if changes, change the value and restart the application.
+
+How can you access pod outside?
+
+Services
+
+pods are ephemeral, IP address is temorary, but you can attch this to the service
+
+Service:
+	load balancer
+	service mesh
+	
+Cluster IP < Node Port < Load Balancer
+
+1. cluster IP
+2. Node Port
+3. Load Balancer
+
+NodePort --> 
+internet --> external
+intranet --> inside
+
+Load Balancer

@@ -1,0 +1,89 @@
+1. build the image
+2. run the image
+
+problems
+-----------
+1 pg --> 10 rooms
+
+power cut, water cut
+
+10 pg --> 1 pg water cut
+
+he will shift persons to other pg temporary.
+
+1 host --> 3 containers if host crash
+no LB
+
+scalbility
+-------------
+noraml servers with R53
+traffic increases, multiple servers and keep LB and update R53 as LB URL..
+if container crash, docker is not able to replace automatically --> not reliable --> self healing
+no proper volume management
+no strong network connectivity
+no auto scaling
+no secrets and config management
+
+3 hosts --> 1 pod is host-1 another pod is in host-2
+
+docker = suit = image build + image pull through its hub + running the images as containers
+docker is providing runtime environment to run docker images...
+
+
+client = docker command
+
+docker daemon = docker engine
+
+daemon/server responds to client
+
+docker run nginx  --> checks image available in local or not, if not available pull it and keep it in local
+run a continer and send output to client
+
+kubernetes is a container orchestrator...
+
+if you want to run 100 pg, we will take help of manager..he needs some software
+
+101-PG1
+
+can 100 IIT grade developers work without manager?
+
+image, ports, versions, volumes, name, env variables
+
+
+eksctl --> create and manage EKS cluster
+kubectl --> to manage containers in kubernetes cluster
+
+
+100 CPU, 2TB RAM
+
+on demand --> t3.micro -- 0.02$ USD
+
+50 CPU, 1TB RAM --> 50 CPU 1TB RAM (Spot) --> 80% discount --> AWS will take over our instances with 2min notice.
+
+
+kubectl get nodes --> display nodes in k8 cluster
+
+
+K8 Resources
+-----------------
+Namespace --> isolated project where you can create resources related to your project
+
+kind:
+apiVersion:
+metadata:
+
+spec:
+
+kubectl apply -f <file-name.yaml>
+kubectl delete -f <file-name.yaml>
+
+pod is smallest deployable unit in kubernetes.
+
+pod vs container
+-------------------
+a pod contains multiple containers. containers inside pod share same n/w and storage.
+
+docker run nginx
+
+
+docker suit = build + image maintanance + docker run time(containerd)

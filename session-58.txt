@@ -1,0 +1,94 @@
+cluster creation with eksctl
+namespaces
+pods
+configmap
+secrets
+services
+	clusterIp
+	nodePort
+	LoadBalancer
+Sets
+	ReplicaSet
+	Deployment
+	StatefulSet
+expense using deployment
+	how to use configmap as volume
+static provisioning
+	EBS
+dynamic provisioning
+	EBS
+EBS vs EFS
+PV
+PVC
+SC
+
+EBS
+---------
+1. first create volume
+2. install ebs csi drivers
+3. EC2 nodes should have role to access EBS
+4. create PV equivalant to EBS volume --> admin, cluster level
+5. create PVC --> namespace, user
+6. use PVC in pod
+
+dynamic
+--------
+SC --> admin level, this creates volume and pv automatically
+pvc, mention sc name
+
+EFS
+----------
+1. create EFS volume
+2. Allow EC2 instances on NFS protocol in EFS SG
+3. install drivers, EFS drivers
+
+kubectl kustomize \
+    "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-2.0" > public-ecr-driver.yaml
+kubectl apply -f public-ecr-driver.yaml
+
+4. check IAM access to the instances
+AmazonEFSCSIDriverPolicy
+
+LB --> Node on particular port --> Nodes should alow traffic from LB --> nodeport --> cluster ip --> pod
+
+EFS dynamic
+------------
+1. installing drivers
+kubectl kustomize \
+    "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-2.0" > public-ecr-driver.yaml
+kubectl apply -f public-ecr-driver.yaml
+
+2. check EC2 instance role have access or not
+3. create EFS volume
+4. check EFS SG allowing EC2 SG
+
+5. create sc
+
+
+MySQL
+-------
+EBS
+
+1. install EBS CSI drivers
+kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.32"
+2. check ebs csi permissions to node
+AmazonEBSCSIDriverPolicy
+
+3. create expense storage class, namespace
+
+inform application team that sc and namespace created. drivers installed, permission given to nodes...
+
+StatefulSet --> used for stateful applications i.e which should have some storage
+Deployment --> used for stateless applications i.e usually frontend and backend
+
+pods are created with -0,-1 in statefulset. because statefulset should keep the pod identity.
+pods in deployment are created at a time. but pods in stateful will be created in orderly manner.
+
+statefulset must have headless service, what is headless service?
+
+a service which will not have cluster ip is called headless
+
+while dealing db clusters, one node should be aware of other nodes
+
+
+
