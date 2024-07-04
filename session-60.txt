@@ -1,0 +1,50 @@
+1. PV --> representing physical storage
+2. PVC --> Claiming the storage
+3. SC --> automatic creation of volume and PV based on the claim from PVC
+
+Deployment vs Statefulset
+---------------------------
+1. stateful applications like DB
+2. PV and PVC are mandatory for statefulset
+3. Orderly provisioning of pods happens.
+4. pods keep their identity like name.
+5. We must create headless service.
+6. every pod should have its own storage. so PV and PVC should be created for every pod.
+
+
+1. Install EBS drivers
+2. Check EC2 Role permissions
+3. create storage class
+4. create statefulset
+
+mysql-mysql-0
+
+pvc-name-statefulset-name-0
+
+if deployment, nslookup of service gives, service IP address
+if statefulset, nslookup of headless service gives us IP address of all pods.
+
+
+HELM
+--------------
+1. building image
+2. running image
+
+only few values frequently change in manifest files.
+
+1. kubernetes package manager
+2. templatise manifest files
+
+1. Chart.yaml
+
+install hellm chart
+
+helm install <preferred-name> . --> . represents Chart.yaml in current directory
+
+helm uninstall nginx
+
+helm upgrade nginx .
+
+helm status
+
+helm history
