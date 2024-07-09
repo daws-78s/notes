@@ -1,0 +1,133 @@
+Taints and tolerations
+Affinity and anti affinity
+Ingress Controller
+
+Selectors
+-----------
+
+k8 master --> nodes
+scheduler --> decide which node your pod should run
+
+nodeSelector --> based on node lables you can decide which node your pod should run
+
+1 --> us-east-1a
+2 --> us-east-1b
+3 --> us-east-1c
+
+EBS volume is in 1a AZ. using nodeSelectors you can execute pod in node-1
+
+taint == paint
+
+if you apply some paint on 10rs note we can't exchange. But you can exchange at RBI or banks.
+
+If I taint k8 nodes, scheduler by default will not schedule pods in that node...
+
+kubectl taint nodes node1 key1=value1:NoSchedule
+
+NoSchedule == no new pods, existing pods will run
+
+kubectl taint nodes node1 key1=value1:NoExecute
+
+NoExecute == no new pods, existing pods will be evicted
+
+PreferNoSchedule = try not to schedule, but can't gaurentee
+
+
+expense project have seperate node group with their custom configuration, so expense nodes are tainted by default. only pods related to expense will have tolerations.
+
+alpha.eksctl.io/cluster-name=expense-1,
+alpha.eksctl.io/nodegroup-name=expense,
+beta.kubernetes.io/arch=amd64,
+beta.kubernetes.io/instance-type=m5.large,
+beta.kubernetes.io/os=linux,
+eks.amazonaws.com/capacityType=SPOT,
+eks.amazonaws.com/nodegroup-image=ami-0c2d8d65bc57661b5,
+eks.amazonaws.com/nodegroup=expense,
+eks.amazonaws.com/sourceLaunchTemplateId=lt-0ac95b7163e943965,
+eks.amazonaws.com/sourceLaunchTemplateVersion=1,
+failure-domain.beta.kubernetes.io/region=us-east-1,
+failure-domain.beta.kubernetes.io/zone=us-east-1c,
+k8s.io/cloud-provider-aws=067c0e6d18e638ea36b4b73b1dc743b8,
+kubernetes.io/arch=amd64,
+kubernetes.io/hostname=ip-192-168-42-153.ec2.internal,
+kubernetes.io/os=linux,
+node.kubernetes.io/instance-type=m5.large,
+topology.k8s.aws/zone-id=use1-az6,
+topology.kubernetes.io/region=us-east-1,
+topology.kubernetes.io/zone=us-east-1c
+
+imagePullPolicy
+-----------------
+image is available in docker hub
+
+nodes will pull the image --> image is present in the node
+
+you changed the image and pushed to hub...
+
+imagePullPolicy
+
+ifNotPresent --> means pull the image, if it is already not pulled inside the pode
+Always --> pull it even it is present or not
+
+
+Affinity
+-------------
+affinity = like
+
+1. Schedule --> scheduler schedules the pod
+2. Execution --> pod should run
+
+preferredDuringSchedulingIgnoredDuringExecution --> soft
+requiredDuringSchedulingIgnoredDuringExecution --> hard
+
+ip-192-168-42-153.ec2.internal --> tained with project exepense
+
+labelled also with project exepense
+
+requiredDuringSchedulingIgnoredDuringExecution --> pod will not run even you set affinity. we need to apply tolerations. So in this case until you apply toleration pod will be in pending state
+
+preferredDuringSchedulingIgnoredDuringExecution --> scheduler tries the asked node, but it cant schedule because tainted node. since it is only preferred it can schedule on to differnt node
+
+pod affinity
+------------
+1 pod loves another pod
+
+pod-1 is in node-1
+pod-2 tries to be in node-1
+
+
+pod affinity and pod anti affinity
+----------------------------------
+
+application --> cache --> DB
+
+web store application should have 2 replics
+1 pod 1 cache
+2nd pod and 2 nd cache
+
+1st cache pod
+--------------
+2 replicas are required
+
+1st replica --> node-1
+
+2nd replica --> node-2
+
+2nd app pod
+---------------
+2 replicas are required
+
+1st replca --> node-1
+2nd replca --> node-2
+
+1st pod --> ip-192-168-42-44.ec2.internal
+2nd pod --> ip-192-168-63-195.ec2.internal
+
+1st pod --> goes to any node, but as per affinity it should go to where redis is running
+2nd pod --> goes to another node where pod-1 is not running,  but it should go another pod where redis is already running
+
+
+1. installing EBS drivers --> kubectl get pods -n kube-system
+2. nods should have ebscsidriverpolicy
+3. create storageclass
+4. give above storageclass in pvc
