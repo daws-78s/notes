@@ -1,0 +1,77 @@
+init containers
+ephemeral volumes
+	emptyDir
+	hostPath
+Liveness probe
+readiness probe
+
+Init containers
+--------------
+1. Init containers run before the main containers run. It can be one or many
+2. Init containers should be completed one by one.
+3. If init containers fail main containers will not run.
+Init containers always run to completion.
+4. to wait until other applications are ready, to prepare some configuration for main container.
+
+DB and backend both are started at a time. backend is ready before DB started successfully. backend is getting failed because no connection to DB.
+
+we can have init container for backend. so before backend starts init container should be checking if DB is ready or not.
+
+1. without root user
+2. use volumes
+3. use official images
+4. use small images, dont keep unnecessary installations
+5. use multi stage builds
+6. use health checks
+7. use custom network
+8. reduce imaging layers
+9. use autoscaling
+
+readiness probe
+-------------------
+we can define when our container is ready.
+for backend we can say when port 8080 opened, we can say
+it is ready
+
+liveness probe
+-----------------
+health check
+once container is ready, then only we can do health check
+auto healing
+
+liveness proble will happen frequently, whenever it finds
+something is wrong it will auto restart the container.
+
+ephemeral volumes
+	emptyDir
+	hostPath
+
+static provisioning and dynamic provisioning --> perm volumes
+
+ephemeral volumes
+--------------------
+1. pod is running and generating log. does it generate log after terminated?
+/var/log/nginx/access.log
+/var/log/nginx/error.log
+
+ephemeral volumes --> emptyDir
+
+1. nginx --> main container
+2. filebeat --> sidecar
+
+you should somehow mount the volume/storage to both containers.
+
+by default k8 considers volumes as emptyDir.
+
+
+docker run -d -v /:/spam nginx
+
+daemon set
+------------------
+daemonset will make sure a pod runs in every node. why this is useful?
+
+we have to access underlying node logs and push them to elastic search for log monitoring. if we run deamonset in kubernetes, it make sure a pod is automatically created when new node is added.
+
+zeal vora --> AWS security specialist
+
+
