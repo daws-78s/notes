@@ -1,0 +1,92 @@
+1. existing ALB attach to EKS
+2. ingress creating ALB
+
+1
+-----
+ALB is never part of EKS cluster, easy to create or part of infra if created outside of EKS. You can create listeners, attach SSL certificates, create rules, target groups, etc.
+
+you can easily attach pods directly to ALB target group using target group binding resource.
+
+aws eks update-kubeconfig --region us-east-1 --name expense-dev
+
+10.0.0.0/16
+
+EKS nodes should accept traffic from nodes with in our VPC CIDR range
+
+node-1 : 10.0.11.23
+node-2: 10.0.22.46
+
+DB
+-----
+created DB and schema... DB admins should create necessary tables and users for applications...
+
+mysql -h db-dev.daws78s.online -u root -pExpenseApp1
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 18
+Server version: 8.0.35 Source distribution
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> USE transactions;
+Database changed
+mysql> CREATE TABLE IF NOT EXISTS transactions (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     amount INT,
+    ->     description VARCHAR(255)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> CREATE USER IF NOT EXISTS 'expense'@'%' IDENTIFIED BY 'ExpenseApp@1';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> GRANT ALL ON transactions.* TO 'expense'@'%';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> exit
+Bye
+
+
+one more application wants to go internet
+---------------------------------------
+1. create target group
+2. create rule
+3. check route53
+
+one EKS cluster can host multiple applications
+
+R53 roboshop.daws78s.online --> ingress ALB
+rule roboshop.daws78s.online --> roboshop TG
+
+
+EKS Ingress Setup
+--------------------
+eksctl utils associate-iam-oidc-provider \
+    --region us-east-1 \
+    --cluster expense-dev \
+    --approve
+
+curl -o iam-policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.1.2/docs/install/iam_policy.json
+
+aws iam create-policy \
+    --policy-name AWSLoadBalancerControllerIAMPolicy \
+    --policy-document file://iam-policy.json
+	
+eksctl create iamserviceaccount \
+--cluster=expense-dev \
+--namespace=kube-system \
+--name=aws-load-balancer-controller \
+--attach-policy-arn=arn:aws:iam::315069654700:policy/AWSLoadBalancerControllerIAMPolicy \
+--override-existing-serviceaccounts \
+--approve
+
+helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=expense-dev
