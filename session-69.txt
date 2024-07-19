@@ -1,0 +1,101 @@
+-> check whether application is already installed or not?
+	-> if installed run helm upgrade
+	-> if not installed, run helm install
+	
+helm list -A --short | grep backend
+
+if it is giving non empty response, then it means already installed. run helm upgrade
+if it is giving empty response, then it means not installled. first time installation. Run helm install
+
+releaseExists = sh(script: "helm list -A --short | grep -w ${component} || true", returnStdout: true).trim()
+
+if(releaseExists.notEmpty()){
+
+}
+else{
+else{
+
+}
+
+
+what if current deployment fails?
+--------------------------------
+do the deployment --> helm install or helm upgrade
+
+if helm install
+-----------------
+if current deployment fails, you cant rollback because there is no previous version. inform users the same
+
+if helm upgrade
+-----------------
+if the current deployment fails, you can rollback to previous version --> can I end the pipeline?
+
+what if rollback also fails?
+----------------------------
+so check the rollback deployment status also...
+
+if success
+------------
+pipeline is success, inform all the teams that deployment failed, rollback happened and it is success  --> P0 issue
+
+pipeline is failure, inform all the teams that deployment failed, rollback also failed. application is down completely. --> P0 issue
+
+
+Multi branch pipeline
+-----------------------
+feature branching --> main/master feature
+
+feature --> short lived
+main --> long lived
+
+deployment in DEV environment --> feature
+non-dev like QA, UAT, PRE-PROD, PROD --> master
+
+1. development/application pipeline
+	build
+	scans
+	unit testing
+	functional testing --> test cases based on component
+2. non-prod pipeline
+	run manifest, but config is differenet
+		DB URL, other system URL, username and password
+	integration tests --> test cases based on entire project
+	stages{
+		stage('Deploy'){
+		
+		}
+		stage('Integration tests'){
+		
+		}
+	}
+		
+3. prod pipeline
+	check CR is approved or not...
+	run manifest, but config is differenet
+	
+	stages{
+		stage('Check CR'){
+			check CR is in approval state and deployment window is correct not.
+		}
+		stage('Deploy'){
+		
+		}
+	}
+	
+	sanity testing --> overall application is production and imp features are accessible or not
+
+
+unit tests vs functional tests vs integration testing
+-----------------------------------------------------
+steel rod
+button
+umbrella cloth
+
+Manual
+Shell scripting
+
+Infra create deploy into K8
+
+dev
+qa
+prod

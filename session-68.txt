@@ -1,0 +1,67 @@
+aws eks update-kubeconfig --region us-east-1 --name expense-dev
+
+mysql -h db-dev.daws78s.online -u root -pExpenseApp1
+
+eksctl utils associate-iam-oidc-provider --region us-east-1 --cluster expense-dev --approve
+
+eksctl create iamserviceaccount \
+--cluster=expense-dev \
+--namespace=kube-system \
+--name=aws-load-balancer-controller \
+--attach-policy-arn=arn:aws:iam::315069654700:policy/AWSLoadBalancerControllerIAMPolicy \
+--override-existing-serviceaccounts \
+--approve
+
+helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=expense-dev --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller
+
+Shared Pipeline/Shared Libraries
+-------------------------------------
+DRY
+
+Ansible Roles
+Terraform modules
+
+1. code reuse. any number of projects can use same code.
+2. centralised location, if you have any changes update it in one place. those will be reflected automatically everywhere. less maintainance
+3. enforece best standards in single location, every one can use them easily
+
+Pipelines are different for different languages. because of build is different
+Deployment platform
+------------------
+1. on premise
+2. cloud VM
+3. K8/EKS
+4. PCF
+
+
+nodejsVM
+nodejsEKS
+javaVM
+javaEKS
+pythonVM
+pythonEKS
+
+
+script/code
+
+run script-name/code
+
+main function
+
+We are using Jenkins shared libraries. Our pipelines are centralised. We have different combinations in our project
+
+1. few apps are into VM.
+2. few apps are containerised
+
+we have javaVM, javaEKS, nodejsVM, nodejsEKS, pythonVM, pythonEKS pipelines
+we give a simple max 10lines Jenkinsfile to developers. they will keep it in their repository. Our pipelines are called at run time. We have below stages
+
+1. clone
+2. build
+3. unit test
+4. sonar scan
+5. upload build file to nexus
+6. create docker image
+7. SAST, DAST, image scan are configured
+8. deploy the application using helm
+9. functional testing is configured by testing team
