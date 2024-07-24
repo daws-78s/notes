@@ -1,0 +1,42 @@
+1. user must have sudo access
+	check root user or not, if yes proceed, if no exit
+2. run the commands to install and configure
+3. use validate function to check success or not
+4. use exit status to validate, if 0 success, otherwise failure
+
+shell script to create ec2 instances and r53 records
+--------------------------------------------
+mongodb redis mysql rabbitmq catalogue user cart shipping payment web
+
+if shipping or mysql take t3.medium otherwise t3.micro
+
+if web use public ip otherwise private ip
+
+aws ec2 run-instances --image-id ami-041e2ea9402c46c32 --instance-type t3.micro --security-group-ids sg-0fea5e49e962e81c9 --subnet-id subnet-09863c54177764565 --query 'Instances[0].InstanceId' --output text
+
+aws ec2 create-tags --resources $instance_id --tags Key=Name,Value=$name
+
+aws ec2 describe-instances --instance-ids i-04429f69b1bbd7867 --query 'Reservations[0].Instances[0].[PrivateIpAddress]' --output text
+
+
+aws route53 change-resource-record-sets --hosted-zone-id $hosted_zone_id --change-batch file://<(cat << EOF
+{
+  "Comment": "Testing creating a record set",
+  "Changes": [
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "$name.$domain_name",
+        "Type": "A",
+        "TTL": 1,
+        "ResourceRecords": [
+          {
+            "Value": "${ip_to_use}"
+          }
+        ]
+      }
+    }
+  ]
+}
+EOF
+)

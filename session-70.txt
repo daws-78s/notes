@@ -1,0 +1,76 @@
+Roboshop
+----------------
+MongoDB --> NoSQL
+MySQL --> tables and rows
+NoSQL --> collections and documents
+
+Product information --> product catalogue
+
+Redis --> cache
+
+backend --> MySQL
+1. Get the connection from MySQL
+2. Run the DB query --> this should be efficient
+3. Get the results
+4. Close the connection
+
+backend --> MySQL --> Cache
+
+backend --> Cache --> MySQL --> Cache
+
+key -> value
+
+MySQL --> RDS DB, Countries, cities, pincodes, etc.
+
+RabbitMQ --> Messaging Queue
+----------------------------
+HTTP --> you will hit some website,
+HTTP can wait for 30sec or 1min, if no response it will throw error.
+Synchronus communication
+1. both systems should be up and running
+2. if 2nd system is down you loose the transaction
+
+Whatsapp
+----------------
+Ramesh --> Suresh
+
+Message will be sent to suresh immidiately
+
+If suresh is offline, 
+
+async
+------
+1. systems no need to be online continously.
+2. messages are waiting in queue
+3. once system is online messages would be delivered, so no data loss.	
+4. systems are loosely coupled
+
+flipakart --> ekart
+
+flipakart will send the order details to one queue --> ekart would be listening to the queue
+
+queue --> point to point = One system sends messages only one system can get the message
+
+topic and subscribe --> 
+
+When I upload a video, youtube have a topic to my channel. all subscriber device are subscribed to that channel. then everyone will get the message
+
+Application tier
+------------------
+catalogue --> an application maintaing the product catalogue
+cart --> adding products to cart, connecting to redis and mongodb
+user --> user info like name,email, username and password. details are in nosql and cached
+shipping --> countries and cities info is processed through shippping, data is in mysql
+payments --> collecting the payments, rabbitmq
+dispatch --> based on again MQ, roboshop send a message to the queue, dispatch will receive the message
+ratings --> product ratings stored in mysql
+
+web tier
+-------------------
+nginx based static application and reverse proxy to application tier.
+
+MongoDB
+----------
+port = 27017
+127.0.0.1 == localhost
+0.0.0.0/0
