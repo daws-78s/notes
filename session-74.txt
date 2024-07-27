@@ -1,0 +1,81 @@
+How do you configure DevOps to a project?
+
+1. Setup
+2. Operations
+3. Improvements
+
+Developers are DevOps customers. We let them only to do best coding. apart from that we will take care of everything from DEV to PROD.
+
+Our goals
+
+1. fast releases
+2. less defects
+3. DEV to PROD automated deployments
+
+as a devops we always look for best practices in the market. Our process should continously evolve. Best practices we are following now are
+
+1. Shift left --> shift everything to DEV environment. Build, scan, deploy and test
+2. DevSecOps --> Static source code analysis, SAST, DAST, OSS, Image and container scanning
+3. Build once and run anywhere --> build artifact/image in only DEV environment, promote to other environments.
+4. DRY --> dont repeat yourself
+
+We should have a meeting with developers
+
+1. which programming language and versions
+2. what is the deployment platform
+3. Discuss about branching and merging strategy. prefer feature branching for agile
+4. if it is legacy then prefer git model
+
+SRE --> Site reliability engineering
+Git --> repos creation, settings, PR process, approvals, etc.
+Jenkins --> Folder creation for their project, RBAC
+Sonar --> project creation, setup quality gates, prefer zero tolerance. no vulnerabilties, no code snells, security rating A, min 80% code coverage
+Nexus --> create a repo and policy
+AWS --> R53 records, VPC if new project, IAM roles and permissions, ECR repos, SG
+EKS --> create namespace in all environments, RBAC, etc. We already implemented ingress controller, static and dynamic provisioning, etc.
+Terraform --> create S3 and dynamodb. automate infra creation through modules
+
+We can explain about process, pipelines. We are using shared pipelines powered jenkins shared library. These are centralised managed by us. We have different combinatins based on programming language and deployment platform.
+
+1. NodeJSVM, NodeJSEKS
+2. JavaVM, JavaEKS
+3. PythonVM, PythonEKS
+
+if they have new platform we can provide the solution. 
+
+we keep a simple jenkinsfile that can call our pipelines in run time. whenever a developer pushes new commit we trigger pipeline through webhook
+
+1. development pipeline where we follow shift left
+	clone
+	build
+	unit testing
+	scan --> all scans
+	artifact upload
+	push image
+	deploy
+	functional test --> we configure as per QA team inputs. we can use selenium
+2. once DEV is success, they raise PR, get the approvals, if it is approved they can move app from DEV to higher environments like QA, UAT, SIT, etc.
+
+3. NON-PROD pipeline --> fetch the image, do the deployment, integration testing
+
+4. app is ready for PROD
+
+We have CR process. APP support team raise CR, add all stakeholders, mention the time, test results, scan, etc.
+
+once CR is reviewed and approved. app support team triggers PROD pipeline
+
+get the CR number, have one more check. is CR in approved state and trigger time is with in deployment window or not. fetch the image and deploy --> app team perform sanity testing
+
+
+apart from this we own EKS. we use to upgrade using Blue/green approach.
+
+Continously we check the industry practices and try to implement, after the microsoft outage. We reviewed all our vendors process. We checked our integration testing process again with our vendor releases.
+
+When app team upgrades the language version, we check the pipelines once again.
+
+Monitoring
+------------
+Log monitoring
+Server monitoring
+application monitoring
+traces
