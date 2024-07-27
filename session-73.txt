@@ -1,0 +1,5 @@
+1. check user exist or not
+2. if exist skip it
+3. if not exist create it
+
+ mongosh --host mongodb.daws78s.online --quiet --eval  "db.adminCommand('listDatabases')['databases']"  | grep catalogue
