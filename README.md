@@ -14,5 +14,5 @@
 
 **Firewall (or) Security group creation**  : given security_name -> description -> Inbound rules -> all traffic, source - anywhere-ipv4 -> Outbound rules -> all traffic, source - custom -> ok
 
-**Launch Instance** : give name -> Amazon Linux -> Amazon Linux 2 AMI (HVM) - Kernel 5.10, SSD Volume Type
+**Launch Instance** : give name -> Amazon Linux -> Amazon Linux 2 AMI (HVM) - Kernel 5.10, SSD Volume Type -> select Security Group -> select Key pair -> Launch Instance
 
