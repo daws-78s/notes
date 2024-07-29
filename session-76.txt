@@ -1,0 +1,48 @@
+Black box monitoring
+White box monitoring
+
+Black box monitoring
+----------------------
+end user can test application
+
+White box monitoring
+-----------------------
+application internal monitoring
+
+server cpu, ram and memory
+number of requests
+latency --> time to respond to our requests
+logs monitoring
+
+latency
+traffic
+memory
+errors
+
+prometheus
+---------------
+CCTV
+-----
+1. CC cameras
+2. centralised monitors
+
+cc cameras are capturing videos, centralised system is pulling those videos
+
+1. Live/Instant video
+2. Historical
+
+centralised and agent system
+
+pull vs push
+---------------
+pull model will have agents, push model will not have agents
+
+time series database
+-------------------
+timestamp
+
+29-JUL 500
+30-JUL 600
+31-JUL 499
+
+quarterly, yearly, weekly
